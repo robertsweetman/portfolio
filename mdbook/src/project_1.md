@@ -76,7 +76,7 @@ To help communicate the changes to a non-technical audience we can use the NCSC 
 
 Now the only external interaction the AWS hosted environment has is to send the "respond to this tender" message and this is only ever an outbound email. This, combined with ongoing logging & scanning results in a very secure application.
 
-### Implementation Costs
+#### Implementation Costs
 
 | Item | Monthly Cost | Notes |
 |------|------|-------|
@@ -103,7 +103,7 @@ We can use the **NCSC Cyber Assessment Framework (CAF)** (NCSC, 2024) and **ISO 
 
 For AI/ML we can use the **OWASP LLM Top 10** (OWASPLLMProject Admin, 2024) and **ENISA's AI Cybersecurity Guidelines** (ENISA, 2023) which cover risks in AI systems and data processing.
 
-### Risk Assessment Matrix
+#### Risk Assessment Matrix
 
 The following table uses the **NCSC CAF outcome assessments** to evaluate current security:
 

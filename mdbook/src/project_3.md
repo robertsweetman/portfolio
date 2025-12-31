@@ -8,19 +8,19 @@
 
 ## K7: [Pass] Reviews the roles, functions and activities relevant to technology solutions within an organisation
 
-### Evidence
+
 
 ---
 
 ## K9: [Pass] Describes the concepts and principles of leadership and management as they relate to their role and how they apply them
 
-### Evidence
+
 
 ---
 
 ## K10: [Pass] Describes the concepts and principles of leadership and management as they relate to their role and how they apply them
 
-### Evidence
+
 
 ---
 
@@ -28,16 +28,16 @@
 
 [Distinction] Evaluates the impact of sustainable digital technology practices of their organisation.
 
-### Evidence
+
 
 ---
 
 ## S8: [Pass] Describes the concepts and principles of leadership and management as they relate to their role and how they apply them
 
-### Evidence
+
 
 ---
 
 ## B8: [Pass] Explains sustainable development approaches within digital technologies as they relate to their role including diversity and inclusion
 
-### Evidence
+

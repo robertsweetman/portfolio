@@ -18,7 +18,7 @@ The expected impact is equitable justice outcomes through a continuous improveme
 
 ### Evidence
 
-## Current Data Strategy and Governance
+#### Current Data Strategy and Governance
 
 ```mermaid
 flowchart TD;
@@ -62,7 +62,7 @@ Figure 3: Strategic Themes
 
 Figure 4: MoJ Focus Areas
 
-## Organisational Evaluation
+#### Organisational Evaluation
 
 * NOMIS - National Offender Management Information System 
     * Legacy Oracle database that has been used to manage prisoners and probationers. 
@@ -103,7 +103,7 @@ Figure 5: Organizational Infrastructure
 
 Unlike many other UK Gov departments - the MoJ has a CTO!
 
-## Stakeholders and Change Process
+#### Stakeholders and Change Process
 
 * **Executive Board and SLT**
   * Drive change
@@ -120,7 +120,7 @@ Unlike many other UK Gov departments - the MoJ has a CTO!
 
 ### Evidence
 
-## Kotter's 8 Steps for Change Management
+#### Kotter's 8 Steps for Change Management
 
 A problem-centered model for change where Existing state != ideal state
 
@@ -137,7 +137,7 @@ A problem-centered model for change where Existing state != ideal state
 
 Figure 6: Kotter's 8-Step Change Model Applied
 
-## Resistance to Cultural Change 
+#### Resistance to Cultural Change 
   
 * Senior management MUST buy in and communicate a clear vision
   * How improving data transparency and access will benefit all users
@@ -157,20 +157,20 @@ Figure 6: Kotter's 8-Step Change Model Applied
 
 ### Evidence
 
-## Risk Management and Mitigation
+#### Risk Management and Mitigation
 
-### Significant push-back around security risks
+##### Significant push-back around security risks
 
 * All levels of the organistion will be very concerned with the security implications
   * The technical implementation will be perceived as new and therefore untrusted
   * The idea of 'open data' is not accepted culturally
   * Possibility that the technology itself has been 'over-sold'
 
-### Personnel and Skills
+##### Personnel and Skills
 
 * The MoJ, like basically every other org, has a skills gap around AI
 
-### Risk Matrix
+##### Risk Matrix
 
 |  %    | Low Impact| Medium Impact | High Impact |
 |----   |-----------|---------------|-------------|
@@ -180,7 +180,7 @@ Figure 6: Kotter's 8-Step Change Model Applied
 
 Figure 7: Risk Matrix
 
-### Mitigation Strategies
+##### Mitigation Strategies
 
 **Cultural**
 - Senior leadership must fully embrace and evangelise the goal 
@@ -216,11 +216,11 @@ Figure 7: Risk Matrix
 
 ### Evidence
 
-## UK Gov Data Maturity Assessment
+#### UK Gov Data Maturity Assessment
 
 UK has its OWN Data Maturity Assessment framework for Government...
 
-### Maturity Levels
+##### Maturity Levels
 
 | Score | Level | Description |
 |-------|-------|-------------|
@@ -232,7 +232,7 @@ UK has its OWN Data Maturity Assessment framework for Government...
 
 Figure 11: Data Maturity Levels
 
-### Assessment Results
+##### Assessment Results
 
 | Category | Score | Notes |
 |----------|-------|-------|
@@ -249,24 +249,24 @@ Figure 11: Data Maturity Levels
 
 Figure 12: MoJ Data Maturity Assessment
 
-### Summary
+##### Summary
 
 Legacy systems reduce data maturity, which has a knock-on effect on the ability to interrogate data or make it widely accessible.
 
-## Impacts of the lack of access & transparency
+#### Impacts of the lack of access & transparency
 
-### Data first research bulletin
+##### Data first research bulletin
 
 * Based off a data-linking programe running since 2019
 * Brings together 8 justice datasets 
 * Only open to academics - refer to 50 page application process
 * Only 40 projects completed in 5 years
 
-### Ethnicity and the Justice System 
+##### Ethnicity and the Justice System 
 
 _Compared to White defendants, Black defendants are significantly morelikely (41% more likely) to elect to have their case heard in the Crown Court, when controlling for age, sex, and number of previous convictions. Cases which elect to be heard in the Crown Court are more likely to result in immediate custody, and average sentence lengths are longer, also when controlling for these factors._
 
-### Ethnic Inequalities in the Criminal Justice System
+##### Ethnic Inequalities in the Criminal Justice System
 
 _Ethnic minority defendants from Black, Mixed, Chinese, and Other White groups were more likely to be remanded in custody by the police than White British defendants._
 
@@ -278,9 +278,9 @@ _Bangladeshi, Pakistani and Black Caribbean groups received significantly longer
 
 Figure 13: Ethnic Disparities in Justice Outcomes
 
-## Ethics, DEI and Sustainability Analysis
+#### Ethics, DEI and Sustainability Analysis
 
-### Making Data Publically accessible
+##### Making Data Publically accessible
 
 * Increased scrutiny means a tendency towards justice outcomes that is more evenly applied
 * Improve justice outcomes for ethnic minorities or under-represented groups
@@ -291,21 +291,19 @@ Figure 13: Ethnic Disparities in Justice Outcomes
   * Claims rose by 20% in 2023
   * Increase in claims by women and minorities
 
-### Technical implementation leapfrogs legacy issues
+##### Technical implementation leapfrogs legacy issues
 
 * Achieves an organisational and strategic goal WITHOUT a multi-year legacy overhall
   * Doesn't require the overhall of legacy systems
     * Cheaper for the tax payer
     * Renew/replace legacy apps without time pressure
 
-### Implementation on the EDGE of AI tech
+##### Implementation on the EDGE of AI tech
 
 * Given the speed of AI innovation:
   * Costs will continue to fall as the approach is implemented
 * Leverage this project to attract AI talent into government
   * The 27% pension contribution for Civil Servants doesn't hurt either...
-
-
 
 ---
 
@@ -313,7 +311,7 @@ Figure 13: Ethnic Disparities in Justice Outcomes
 
 ### Evidence
 
-## Implementation Timeline and Phased Approach
+#### Implementation Timeline and Phased Approach
 
 <!-- markdownlint-disable MD033 -->
 <style>
@@ -458,7 +456,7 @@ Figure 9: Data Strategy Implementation - Phase 2
 
 Assessments will be ongoing to course correct to meet the goals over the long term.
 
-## Technical Implementation Architecture
+#### Technical Implementation Architecture
 
 ```mermaid
 flowchart TD
@@ -497,9 +495,9 @@ Figure 10: Technical Architecture
 
 ### Evidence
 
-## Gap Analysis
+#### Gap Analysis
 
-### Wins
+##### Wins
 
 * Databases are on the cloud
 * Migration from Azure -> AWS has delivered an Infrastructure as code (IaC) solution
@@ -510,14 +508,14 @@ Figure 10: Technical Architecture
   * Promised lower costs following migration
     * An opportunity to turn things off  
 
-### Fails
+##### Fails
 
 * Databases are still hosted on expensive VMs, not run as a managed service
 * Database licensing costs are still high (Oracle)
 * A lot of legacy apps had to move under un-supported OS and application version...
 * Reporting using the legacy systems use SAP Business Objects, only recently upgraded
 
-### Data Challenges
+##### Data Challenges
 
 * Production data access requires security clearance
 * Data analysis requires specialist knowledge, tools and training
@@ -525,7 +523,7 @@ Figure 10: Technical Architecture
   * You _can_ fill in a 50 page form to apply for access with no guarantee of success
   * Little outside scrutiny means that outcomes based on data are potentially unreliable
 
-### Government's own State of Digital Government Review
+##### Government's own State of Digital Government Review
 
 **Data is fragmented and underused.**
 
@@ -535,9 +533,9 @@ _This holds back AI, machine learning, and advanced analytics. Only 27% of surve
 
 _The scale of legacy varies by organisation and is not consistently measured, but it is estimated to comprise 28% of systems in central government departments in 2024, an increase from 26% in 2023._
 
-## Recommendation for Change
+#### Recommendation for Change
 
-### Increase Public Access
+##### Increase Public Access
 
 * From the Government's own Data Maturity Model there is a lack of transparency. 
 
@@ -549,7 +547,7 @@ _The scale of legacy varies by organisation and is not consistently measured, bu
 
 _It's hard to claim that the MoJ is a Data Driven organisation when the data is not available to wider scrutiny._
 
-### The pre-AI solution
+##### The pre-AI solution
 
 Initiate a multi-year project to anonymise the data, eventually making it publicly available.
 
@@ -562,7 +560,7 @@ This would require significant technical changes:
 
 Even with this type of re-write/re-architecture it would likely remain the case that only specialist data scientist would be able to gain insight from it.
 
-### The post-AI solution
+##### The post-AI solution
 
 AI agents that leverage the Model Context Protocol
 * Connect to data in any form 
@@ -573,7 +571,7 @@ At a high level combining the MCP with (for example) AWS Bedrock Guardrails woul
 
 This would also allow the data to be queried in a natural language format, a key to opening up engagement to non-academic users.
 
-## Impact Analysis
+#### Impact Analysis
 
 ```mermaid
 flowchart LR
@@ -595,7 +593,7 @@ Figure 14: Continuous Improvement Cycle
 * Improve Training    - Training is likely needed to effect real change
 * Equitable Justice   - Fair application of justice/law interpretations
 
-### Justice will bend towards being applied fairly across race/cultures and other dimensions
+##### Justice will bend towards being applied fairly across race/cultures and other dimensions
 
 * The gap in outcomes between white vs. ethnic minority offenders should tend towards zero
   * Achievable by increasing training around fairness and bias in sentencing
@@ -613,5 +611,3 @@ Figure 14: Continuous Improvement Cycle
   * **Measure whether cultural perception of the overall UK Justice system goes up**
 
 **Caveat: These goals might take a number of years to manifest**
-
-

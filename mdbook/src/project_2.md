@@ -12,7 +12,7 @@ This project evaluates the current state of data management for the eTenders app
 
 ### Evidence
 
-## Key stakeholders and requirements
+#### Key stakeholders and requirements
 <!--
 Identify key stakeholders, then gather and prioritise requirements
 -->
@@ -60,9 +60,9 @@ Key stakeholders are the business leaders responsible for the sales effort in Ir
 ![Requirements](./images/project_2/Requirements.png)
 Figure 3: Business and Technical Requirements
 
-## Research
+#### Research
 
-### Database Options
+##### Database Options
 
 By taking the characteristics of the data into account we can rule out certain database types.
 
@@ -98,7 +98,7 @@ We can look at options with a weighting, including a noSQL option for comparison
 
 ### Evidence
 
-### Database table design
+#### Database table design
 
 The existing application uses AWS Lamdba's written in Rust so from a basic data-gathering perspective we can make use of Rust's struct objects. Rust structs (doc.rust-lang.org, n.d.) are essentially custom objects which are the 'record' being moved and modified through the ETL pipeline.
 
@@ -114,7 +114,7 @@ Figure 2: Transformed Tender Record
 
 This TenderRecord struct is the base object which is either passed between Lambda's or written to the database. It's not a critical consideration but Rust as a language can perform these sorts of data type changes very quickly. Rust is faster than other languages, with the possible exception of C/C+ (Vietnam Software Outsourcing - MOR Software, 2016).
 
-#### Tender Records Table
+##### Tender Records Table
 
 Each record is stored in a single row, like an excel spreadsheet. There is a unique resource_id per tender so we can use this as a key for "something" but not very much consideration has been given to how to use this data beyond the Machine Learning (ML) training that was carried out initially. (robertsweetman, 2025)
 
@@ -122,7 +122,7 @@ In a prior ML training phase, once the eTenders table contained enough records, 
 
 Being able to gain other insights from the data wasn't really considered. It's purely been used to reduce Sales admin time & to try to avoid missing any tenders which should be looked at by a human.
 
-#### PDF Content Table
+##### PDF Content Table
 
 In most cases each tender has an accompanying PDF that contains more information about the bid process for that tender.
 
@@ -130,7 +130,7 @@ These PDF's are not always comprehensive but they do supply the AI analysis step
 
 However, from a database point of view, the entire PDF is being stored as a long text string in an accompanying pdf_content column which is linked to the main eTenders table via the resource_id key.
 
-## DB Schema & ERD
+#### DB Schema & ERD
 
 ```mermaid
 erDiagram
@@ -223,7 +223,7 @@ erDiagram
 
 ### Evidence
 
-## Data Pipeline & Data Sources
+#### Data Pipeline & Data Sources
 
 There are 7 data sources when it comes to updating the database, turning it into the commercial backbone of the Sales Process.
 
@@ -247,7 +247,7 @@ The pipeline contains the traditional Extract, Transform & Load stages BUT in fa
 
 Although a "load" step exists in the first "ETL" stage we're in fact writing the data to the database (or files) as each step completes.
 
-## DB Schema & ERD
+#### DB Schema & ERD
 
 ```mermaid
 erDiagram
@@ -434,7 +434,7 @@ def download_and_validate_pdf(url):
 
 Figure 11: Python fix for PDF Extraction Errors
 
-### Server Errors
+#### Server Errors
 
 About 35% of errors involve the server not responding to certain requests.
 
@@ -461,7 +461,7 @@ def download_with_retry(url):
 
 Figure 13: Python Fix for Server Errors
 
-### LLM JSON parsing errors
+#### LLM JSON parsing errors
 
 The LLM can produce invalid or incomplete JSON
 
@@ -508,7 +508,7 @@ def parse_with_llm_robust(text):
 
 Figure 15: Python fix for JSON Parsing
 
-### Timeout Errors
+#### Timeout Errors
 
 We can see about 10% of errors are due to timeouts getting larger PDF's
 
@@ -572,7 +572,7 @@ Develops a hightly adaptable, scalable data product exceeding current business n
 
 ### Evidence
 
-## Data Management
+#### Data Management
 
 <!-- The data load of eTenders is currently carried out in a pretty naive fashion. -->
 
@@ -592,7 +592,7 @@ It serves mainly as a state storage device to answer the following questions:
 
 The database of tender records isn't the 'product' in this case. The 'respond to this tender' emails are currently the only product or business value resulting from all this work.
 
-## Key Findings
+#### Key Findings
 
 From talking to stakeholders there has been some very clear feedback.
 
@@ -620,11 +620,11 @@ Highlight key findings and provide actional recommendations
 Evaluate the current state of data management at your organisation, including data source integration, storage, quality, compliance with GDPR/HIPAA, security, and tool effectiveness.
 -->
 
-## Needs Analysis
+#### Needs Analysis
 <!--
 Detail a comprehensive needs analysis highlighting data related needs and pain points
 -->
-### Business Needs
+##### Business Needs
 
 The organisation needs to place the tender requests firmly within the whole bid response process loop. All the current solution does is use AI to help guard against losing the signal within the noise of up to 50 requests per day. It doesn't really add value beyond that.
 
@@ -636,7 +636,7 @@ We could update the database with won and lost tenders to help avoid repeating m
 
 If we append what we send in response to tenders that might even allow us to leverage AI to create bid response templates, improve our ML tender analysis solution with actual "won bid" data and be more confident anything our ML/AI highlights will net a positive return on the time investment to respond to a tender request.
 
-### Technical Needs
+##### Technical Needs
 <!-- is it POC or PoC -->
 The intial POC is hard to manage because it's in both an unfamiliar language and the incorrect cloud environment for the business.
 
@@ -688,7 +688,7 @@ VERY IMPORTANT POINTS FROM REVIEW WITH JOE
 3. Look at EVERY word in the rubric and make sure it's being covered somehow.
 -->
 
-## Business Wins
+#### Business Wins
 
 In addition to the reduction in Sales admin the business can display key business intelligence information from the data.
 
@@ -716,7 +716,7 @@ All of these metrics get added to the tender records as they progress to help an
 
 As we see from the data, the cost of missing a bid or losing an opportunity is already very high. We can quible over implementation costs but if this effort tips the chance of winning even a portion of the €70 million then it's worth doing.
 
-## Implementation and Rollout Plan
+#### Implementation and Rollout Plan
 
 In order to de-risk the development and deployment of the solution we can take a phased approach
 
@@ -840,7 +840,7 @@ gantt
 
 Figure 20: Phased Delivery Plan
 
-### Phase 1: Prototype (6w)
+##### Phase 1: Prototype (6w)
 
 The goal is to validate the technical feasibility as well as ensure all stakeholder feedback has been considered. We can use the following KPI's to ensure all the requirements have been met:
 
@@ -848,11 +848,11 @@ The goal is to validate the technical feasibility as well as ensure all stakehol
 - Technically feasible in that eTenders can be obtained, stored and processed
 - Prototype can be created with a set of minimum features (MVP)
 
-#### Phase 1: Contingency
+##### Phase 1: Contingency
 
 If the PoC proves challenging then pivot to using a different datasource, running everything manually for a while or deploying as something other than a container. Azure Functions might be an alternative.
 
-### Phase 2: Development and Deployment (6w)
+##### Phase 2: Development and Deployment (6w)
 
 Phase 2 goal is to develop and deploy the solution securely in the cloud paying attention to the following measures to validate success:
 
@@ -860,32 +860,32 @@ Phase 2 goal is to develop and deploy the solution securely in the cloud paying 
 - Successful deployment to the Azure cloud environment
 - Resources deployed pass Microsoft's cloud security checks
 
-#### Phase 2: Contingency
+##### Phase 2: Contingency
 
 Deployment might be delayed to allow security issues to be patched or possibly the run-rate budget might need to increase to include higher cost protections like Nat Gateways and Azure AD for access.
 
-### Phase 3: Business Validation (3w)
+##### Phase 3: Business Validation (3w)
 
 The goal here is to be able to demonstrate business value and validate user adoption in the short term. Longer term measures will only come to light after several bid cycles have been completed.
 
-#### Short term business measures
+##### Short term business measures
 
 - High (>80%) uptake of using the tool by the Sales Team
 - Reduction in reported sales admin (time) by Sales Team
 - User satisfaction survey reports improvement (anonymous Sales Team survey)
 
-#### Long term business measures
+##### Long term business measures
 
 - Overall increase in bids won (revenue) over a 6 - 12 month period
 - Identify more opportunities to bid on
 - Additional features and integrations are requested by the Sales Team as this proves the product is becoming more useful to the business overall
 - Additional requests for analytics and dashboards from Sales Management which again shows interest and buy-in
 
-#### Phase 3 Contingency
+##### Phase 3 Contingency
 
 If users struggle then additional training would have to be considered and for some users to be selected to champion the use of this tool as a replacement for out-dated manual processes. As with all implementations buy in and support from Management is essential for success.
 
-## Summary
+#### Summary
 
 The dashboard clearly shows the value of having a well architected data product that surfaces business value and can drive commercial success.
 
@@ -911,11 +911,3 @@ RUBRIC - A
 Develops a multi-faceted value analysis that quantifies short-term and long term impacts of a data-driven solution, including ROI projections. Incorporating analysis of stakeholder needs across all levels of the organisation. Provides a detailed implementation plan with phased rollout strategy, specific KPI's for each phase and contingency plans.
 
 -->
-
-
-
-
-
-
-
-

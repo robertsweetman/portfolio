@@ -22,23 +22,23 @@ Key achievements: False negative reduction from 13 to manageable levels, enhance
 
 ### Evidence
 
-## Application Development Lifecycle
+#### Application Development Lifecycle
 
 We're going through app development stages which map onto the Project Gantt chart in Team Collaboration section.
 
-### Requirements Gathering
+##### Requirements Gathering
 
 Stakeholders, in this case Version 1's Sales Team for Ireland, would clearly love to avoid trawling through un-related tenders of no interest to an IT consultancy. However, there is a significant opportunity cost to missing relevant tenders. This translates into a solid requirement where we're trying to reduce workload BUT not at the expense of a huge false negative rate where the model elects to mark a tender as 'no-bid' when it might be hugely valuable.
 
-### Prototype
+#### Prototype
 
-#### Data Gathering
+##### Data Gathering
 
 We can automate data gathering, manipulation and storage by leveraging infrastructure as code (IaC) tools like Terraform. This brings up an AWS RDS PostgreSQL database in the cloud, uses AWS Lambdas (written in Rust for speed and cheapness) to get the data and pipe the data into the database.
 
 To avoid the "it works on my machine" problem we should use GitHub Actions to drive cloud deployment, Lambda updates and ultimately ML execution/testing/training. Using action runners means anyone in the team can update the application, following appropriate review of course.
 
-#### Model Selection
+##### Model Selection
 
 Python's wide range of ML libraries, and Jupyter notebooks allow us to quickly iterate on a data-frame and most importantly validate what the model might be doing or missing.
 
@@ -46,13 +46,13 @@ It's not simply a case of throwing some data at a model, getting a nice looking 
 
 Here's where the key testing and investigation work around ML happens.
 
-### Development
+#### Development
 
 Following architectural design and planning this phase runs in 2 week sprints to fulfill user stories that deliver incremental value. This ensures that if any blockers do arise they're identified early and don't derail the entire project in the last weeks.
 
 A key section in here is testing that 'all' tender records can be ingested, and making sure there are schema checks around data ingestion. As we're using Rust for a lot of the data pipeline it's type and compiler checking add a lot of value here.
 
-### Deployment
+#### Deployment
 
 Before official 'go-live' everything runs in the cloud environment as a 'smoke test' but the results are private and highly scrutinised by the development team. Once they're happy a go/no-go decision can be made in consultation with the stakeholders, based on the results from running the ML model and reviewing the tenders it's suggesting, as well as those it's rejected.
 
@@ -60,7 +60,7 @@ We can extend the automation already used in the prototyping phase to actually d
 
 After the deployment is live we might find users have feedback or there might be updates needed to deal with unforseen issues. Since the deployment pipeline is now automated this shouldn't prove too challenging.
 
-## Integration into existing digital solution lifecycle
+#### Integration into existing digital solution lifecycle
 
 One of the key aspects of software development that especially applies to ML is quick iterations to see what may give a useful result.
 
@@ -78,7 +78,7 @@ Developers can independently work on the ML part without relying on or becoming 
 
 ### Evidence
 
-## Team Roles and Responsibilities
+#### Team Roles and Responsibilities
 
 Modern software development now sits on top of a whole tool chain to surface work, encourage transparency and foster communication. In this type of project we'd keep all the code in source control (Git), all the tasks in Jira and run a daily agile-type stand-up to share progress or air any blockers.
 
@@ -90,7 +90,7 @@ The Team Lead would also likely interface to the **Project Manager** who would h
 
 You could easily use dashboards to broadcast the current project state, identify key milestones and plot progress along a gantt chart (see S7 section below).
 
-## Appointing AI/ML Ownership
+#### Appointing AI/ML Ownership
 
 As with any new technology a huge factor associated with it's introduction is trust.
 
@@ -114,7 +114,7 @@ To address these issues we can take some concrete steps:
 
 ### Evidence
 
-## Data Ingestion, Investigation and Prep
+#### Data Ingestion, Investigation and Prep
 
 Each record consists of the following:
 
@@ -128,31 +128,31 @@ All this has been pulled into PostgreSQL database for easy manipulation. We'll '
 
 Then we can go through each column and decide whether it needs further attention.
 
-### Labelling the 'bid' column for Supervised learning
+##### Labelling the 'bid' column for Supervised learning
 
 To train a supervised learning model on this data we've had to manually label 2000+ records with bid (1) or no bid (0), which took around 2 hours.
 
-### Data Manipulation/Cleanup
+#### Data Manipulation/Cleanup
 
-#### id
+##### id
 This can be removed since `resource_id` is unique, we don't need another id.
 
-#### title
+##### title
 This is the key field we're looking at training the model on to predict whether we should bid (1) or not (0). Happily EVERY record has a title field so we don't have to deal with null data in this case.
 
-#### contracting authority (ca)
+##### contracting authority (ca)
 CA has a finite number of possibilities so we're going to one-hot encode this.
 
-#### procedure
+##### procedure
 Procedure has a finite number of possibilities so we're going to one-hot encode this.
 
-#### pdf_url
+##### pdf_url
 Not relevant so can be removed from the training data. We could _maybe_ turn this into a data point but this is problematic as 25% of tenders don't have a PDF attached to them.
 
-#### value
+##### value
 Again nearly 50% of records don't have a value and making any assumptions about these (filling in values, adding a mean) would likely only introduce innacuracies. Conversely there might be multi-million pound values hidded in the PDF content. So with this in mind we can't rely on value as a feature of the tender data for ML training.
 
-## ML and AI in this use-case
+#### ML and AI in this use-case
 
 Let's clarify the difference between Machine Learning (ML) and AI since ML has been very much been run over by AI hype.
 
@@ -166,8 +166,6 @@ Since we're asking a simple question ("Is this tender suitable to make a bid on 
 
 Similarly, semi-supervised learning isn't appropriate yet because we only have labelled records. In six, twelve or twenty-four months it might be well worth taking the baseline supervised model and re-running the training.
 
-
-
 ---
 
 ## K19: [Pass] Applies relevant legal, ethical, social and professional standards to digital and technology solutions considering both technical and non-technical audiences and in line with organisational guidelines
@@ -176,13 +174,13 @@ Similarly, semi-supervised learning isn't appropriate yet because we only have l
 
 ### Evidence
 
-## Ethical Considerations
+#### Ethical Considerations
 
 Training ML models should pay attention to local laws & statutes (i.e. GDPR), ensure the data is used in an ethical way and aim for transparency when it comes to any decisions that are underpinned by any sort of AI or ML training process.
 
 Version 1 also has a AI Governance framework that goes through a number of discovery steps to ensure directives around AI are adhered to, maintain compliance and ensure any ethical and social implications are made clear to all parties involved.
 
-### Trust and Accountability
+##### Trust and Accountability
 
 As with any new technology a huge factor associated with its introduction is trust. Primarily, can users rely on what they're being told? Can we assemble a body of evidence in the training of tools like this to prove it will work as intended, save on 'drudge' filtering work and not negatively impact the business?
 
@@ -190,7 +188,7 @@ There are many instances where software has been used as a smokescreen for dodgi
 
 Adding AI increases the temptation to simply offload governance entirely to a "black box". Consumers are already abdicating responsibility for major life decisions to AI sometimes very much to their own detriment. Businesses may end up being no different if ethics aren't adhered to.
 
-### Transparency Measures
+##### Transparency Measures
 
 To address these issues we take concrete steps:
 
@@ -198,7 +196,7 @@ To address these issues we take concrete steps:
 * **Appointing an Owner specifically responsible for the behaviour of the AI/ML aspect** - Clear accountability chain
 * **Adding feedback loops and an update schedule** - Monthly retraining recommended to update the model as new tenders are published
 
-## Regulatory Compliance
+#### Regulatory Compliance
 
 Version 1 (V1) is already signed up to access the eTenders data and respond so there is no part of the proposed usage that prohibits it's use, other than onward transmission to third parties.
 
@@ -206,11 +204,9 @@ That said, for this to be more than a proof of concept/demo it would be appropri
 
 However, with this in mind, it's already been proposed internally within V1 to respond to the OGP's question about how AI/ML might help them manage the tender process, increase transparency and modernise how they publish tenders by sharing this project/proof of concept with them.
 
-### GDPR and Data Protection
+##### GDPR and Data Protection
 
 All tender data is publicly available government procurement information. No personal data is processed. The PostgreSQL database is secured within AWS RDS with appropriate access controls.
-
-
 
 ---
 
@@ -218,62 +214,62 @@ All tender data is publicly available government procurement information. No per
 
 ### Evidence
 
-## Functional Requirements
+#### Functional Requirements
 
-### Primary Requirement: Reduce False Negatives
+##### Primary Requirement: Reduce False Negatives
 
 Stakeholders, in this case Version 1's Sales Team for Ireland, would clearly love to avoid trawling through un-related tenders of no interest to an IT consultancy. However, there is a **significant opportunity cost to missing relevant tenders**.
 
 This translates into a solid requirement where we're trying to reduce workload BUT not at the expense of a huge false negative rate where the model elects to mark a tender as 'no-bid' when it might be hugely valuable.
 
-### Acceptance Criteria
+##### Acceptance Criteria
 
 * **Reduce manual review workload** - Target 50% reduction achieved
 * **Minimize false negatives** - Missing a multi-million euro opportunity is unacceptable
 * **Maintain recall** - Must catch all potentially valuable tenders
 * **Allow threshold adjustment** - Business can tune false positive vs false negative trade-off
 
-## Non-Functional Requirements
+#### Non-Functional Requirements
 
-### Performance
+##### Performance
 
 * Process daily batch of 50+ tenders within acceptable timeframe
 * Model inference time must not delay notification to sales team
 
-### Scalability
+##### Scalability
 
 * AWS Lambda functions scale automatically
 * PostgreSQL database sized appropriately for tender volume
 * Terraform IaC allows infrastructure scaling
 
-### Maintainability
+##### Maintainability
 
 * Jupyter notebooks document all model decisions
 * GitHub repository contains complete codebase
 * CI/CD pipeline enables easy updates
 * Monthly retraining schedule for model updates
 
-### Reliability
+##### Reliability
 
 * Infrastructure as Code ensures reproducible deployments
 * Rust's type system and compiler checking reduce runtime errors
 * Smoke test phase validates production readiness
 
-## Security Requirements
+#### Security Requirements
 
-### Data Access
+##### Data Access
 
 * AWS RDS PostgreSQL database with access controls
 * No personal data processed (public government tenders only)
 * Credentials managed securely via AWS Secrets Manager
 
-### Code Security
+##### Code Security
 
 * GitHub Actions for automated deployment (no manual credential exposure)
 * Rust memory safety prevents buffer overflows and memory leaks
 * Infrastructure isolated within AWS VPC
 
-### Compliance
+##### Compliance
 
 * GDPR compliance through public data usage only
 * OGP permission obtained for production use
@@ -287,9 +283,9 @@ This translates into a solid requirement where we're trying to reduce workload B
 
 ### Evidence
 
-## Software Component Development
+#### Software Component Development
 
-### Data Pipeline Architecture
+##### Data Pipeline Architecture
 
 The complete data pipeline consists of:
 
@@ -310,7 +306,7 @@ The complete data pipeline consists of:
    - Model persistence to S3
    - Inference Lambda integration
 
-### Code Quality and Testing
+##### Code Quality and Testing
 
 **Rust Benefits:**
 * Type system catches errors at compile time
@@ -323,7 +319,7 @@ The complete data pipeline consists of:
 * Schema checks around data ingestion
 * Database constraints enforce data integrity
 
-### Debugging and Iteration
+##### Debugging and Iteration
 
 **Jupyter Notebooks for Exploration:**
 * `etenders.ipynb` - Initial investigative model workbook
@@ -337,15 +333,13 @@ The complete data pipeline consists of:
 * Lambda updates without manual intervention
 * Avoids "it works on my machine" problems
 
-
-
 ---
 
 ## S7: [Pass] Explains how teams work effectively to produce a digital and technology solution applying relevant organisational theories using up to date awareness of trends and innovations
 
 ### Evidence
 
-## Team Collaboration and Communication
+#### Team Collaboration and Communication
 
 Modern software development now sits on top of a whole tool chain to surface work, encourage transparency and foster communication. In this type of project we'd keep all the code in source control (Git), all the tasks in Jira and run a daily agile-type stand-up to share progress or air any blockers.
 
@@ -353,7 +347,7 @@ There's usually a chat app like Slack or Teams for quick threads to tackle parti
 
 You could easily use dashboards to broadcast the current project state, identify key milestones and plot progress along a gantt chart.
 
-## Project Timeline and Stage Gates
+#### Project Timeline and Stage Gates
 
 <!-- markdownlint-disable MD033 -->
 <style>
@@ -448,7 +442,7 @@ You could easily use dashboards to broadcast the current project state, identify
 </style>
 <!-- markdownlint-enable MD033 -->
 
-### Phase 1: Prototype
+#### Phase 1: Prototype
 
 ```mermaid
 gantt
@@ -467,7 +461,7 @@ gantt
 
 Figure 16: Prototype Phase Timeline
 
-### Phase 2: Development
+#### Phase 2: Development
 
 ```mermaid
 gantt
@@ -487,7 +481,7 @@ gantt
 
 Figure 17: Development Phase Timeline
 
-### Phase 3: Deployment
+#### Phase 3: Deployment
 
 ```mermaid
 gantt
@@ -511,20 +505,18 @@ There are **stage gates** following prototype delivery and after the model has b
 
 Then, once it's been running for two to four weeks updates can be made based on live data and user feedback. Maybe there's some part of the performance that needs tweaking?
 
-## Sharing Best Practices
+#### Sharing Best Practices
 
 From my experience within Version 1 the primary way that best practices are shared is via **'lunch and learn' sessions**. It's always challenging to pull people's attention from client work so recorded sessions make the information more accessible.
 
 Keeping these up-to-date might mean creating your own internal news letter, blog or wiki that updates the same topic when new or better ways of doing things come to light. Making this content public also massively boosts the organisations visibility and credibility in the wider world.
 
-## Agile Methodology Benefits
+#### Agile Methodology Benefits
 
 * **2-week sprints** - Deliver incremental value, identify blockers early
 * **Daily stand-ups** - Surface progress and blockers quickly
 * **Flexibility** - Change direction based on new information or requirements
 * **Independent work streams** - ML development doesn't block infrastructure work
-
-
 
 ---
 
@@ -532,7 +524,7 @@ Keeping these up-to-date might mean creating your own internal news letter, blog
 
 ### Evidence
 
-## Model Selection and Debugging
+#### Model Selection and Debugging
 
 We're looking to make a decision ("bid on this or not?") so it seemed immediately obvious to start our investigation using a decision tree. However, there's a fundamental issue with that assumption because our main piece of data on which to answer this bid/no-bid question is the tender title, which is all text. Additionally our data is highly weighted towards 'no-bid' as an outcome which makes using decision trees problematic.
 
@@ -540,7 +532,7 @@ Think of it this way, the text field is going to be turned into a large list of 
 
 In a decision tree every split asks about the value of a word but we're doing this on very sparse data where there's far more "mostly zero" features that don't impact on whether a tender should be considered a bid opportunity. This means that if a word appears only once it easily lets the tree recognise a single record. Additionally it will perform very well on data it's already seen but badly on new records and it won't know what to do with tender titles that contain words it hasn't seen before.
 
-### Decision Tree Results
+##### Decision Tree Results
 
 Refer to `decision_tree_model.ipynb` for the code.
 
@@ -560,7 +552,7 @@ We can also show visually how this type of approach over-fits quite badly by plo
 
 Most importantly, even when you add more training data the gap doesn't close which indicates the model has learnt patterns based on that only, rather than a general pattern.
 
-### Linear Regression Investigation
+##### Linear Regression Investigation
 
 With this in mind we need to look at what's better at least for this type of data. We still have only two possible outcomes and linear regression can also cope with this as well as being better dealing with the short text strings we have in our 'tender title' field.
 
@@ -604,7 +596,7 @@ Figure 8: Initial Confusion Matrix
 
 With a default threshold of 50% we're getting 13 Bids labelled as No-Bid i.e. a pretty high false-negative rate. Since a false negative might be worth a few million Euros this doesn't justify saving someone time doing the filtering because at this point that saving doesn't equate to the missed opportunities value...
 
-### Tokenizer Comparison
+##### Tokenizer Comparison
 
 As an exercise I decided to look at whether tokenizer choices made an impact on this problem.
 
@@ -622,7 +614,7 @@ Figure 10: Tokenizer Performance Results
 
 **TFIDF + Linear SVM** looks like the best overall candidate as while the false negative rate on the confusion matrix is higher than with SBERT + LogReg the false positive (time-wasting) number starts far lower. TFIDF + Linear SVM also has a higher `Bid Precision` F1 score.
 
-### Final TFIDF + Linear SVM model
+##### Final TFIDF + Linear SVM model
 
 Refer to `tfidf_linearSVM.ipynb` for the code.
 
@@ -652,7 +644,7 @@ Figure 14: Learning Curve - SVM
 
 Since the scores are still a way away and haven't converged this also suggests we could do with more data... However, on the positive side it's not over or under-fitting like the Decistion Tree.
 
-### Model Enhancement with PDF Content
+##### Model Enhancement with PDF Content
 
 We made a good start trying to pick bid opportunites from the tender title only but this resulted in too many false negatives.
 
@@ -672,17 +664,15 @@ By enhancing the model we've **reduced the number of missed opportunities by nea
 
 This does mean manually reviewing more bids but we've still cut that by 50% and are in a good place when it comes to false negatives.
 
-
-
 ---
 
 ## S11: [Pass] Determine and use appropriate data analysis techniques. For example, Text, Statistical, Diagnostic or Predictive Analysis to assess a digital and technology solutions
 
 ### Evidence
 
-## Text Analysis Techniques
+#### Text Analysis Techniques
 
-### TF-IDF Vectorization
+##### TF-IDF Vectorization
 
 **Term Frequency-Inverse Document Frequency** transforms text into numerical features by:
 
@@ -696,7 +686,7 @@ This technique is ideal for our tender title analysis because:
 * Ignores common words that don't help classification
 * Works well with previously unseen vocabulary
 
-### Alternative Tokenization Methods Evaluated
+##### Alternative Tokenization Methods Evaluated
 
 * **Count Vectorizer** - Simple word counts (too basic for our needs)
 * **Hashing Vectorizer** - Memory efficient but generated too many false positives
@@ -704,9 +694,9 @@ This technique is ideal for our tender title analysis because:
 
 Final selection: **TF-IDF + Linear SVM** provided best balance of precision, recall, and computational efficiency.
 
-## Statistical Analysis Techniques
+#### Statistical Analysis Techniques
 
-### Confusion Matrix Analysis
+##### Confusion Matrix Analysis
 
 Used to evaluate classification performance:
 
@@ -721,14 +711,14 @@ Actual: Bid          False Negative   True Positive
 * **Recall** = TP / (TP + FN) - "Of all actual bids, how many did we catch?"
 * **F1 Score** = 2 × (Precision × Recall) / (Precision + Recall) - Harmonic mean
 
-### Learning Curve Analysis
+##### Learning Curve Analysis
 
 Plots model performance vs training set size to diagnose:
 * **Over-fitting** - Training score >> Validation score (Decision Tree exhibited this)
 * **Under-fitting** - Both scores low and not improving
 * **Good fit** - Scores converge as training data increases (achieved with SVM)
 
-### Feature Importance Analysis
+##### Feature Importance Analysis
 
 ![Push Words](./images/project_4/push_words.png)
 
@@ -736,7 +726,7 @@ Analyzed which words most strongly influence bid/no-bid classification:
 * Positive coefficients → "bid" predictions (e.g., "software", "IT", "consulting")
 * Negative coefficients → "no-bid" predictions (e.g., "catering", "cleaning", "waste")
 
-### Category Impact Analysis
+##### Category Impact Analysis
 
 ![Categories and Procedures](./images/project_4/most_influential_ca_procedure.png)
 
@@ -745,9 +735,9 @@ Evaluated contribution of:
 * **Procedure Type** (one-hot encoded) - Does procurement procedure type matter?
 * **Has PDF** (numeric) - Minimal impact (accuracy without: -0.007)
 
-## Diagnostic Analysis
+#### Diagnostic Analysis
 
-### Model Comparison
+##### Model Comparison
 
 | Model | Precision | Recall | F1 | False Negatives | Assessment |
 |-------|-----------|--------|----|-----------------|-----------|
@@ -756,7 +746,7 @@ Evaluated contribution of:
 | TF-IDF + SVM (title only) | Good | High | Good | 13 | Needs more data |
 | TF-IDF + SVM (with PDF) | **Best** | **High** | **Best** | **Reduced by 33%** | **Selected** |
 
-### Threshold Tuning
+##### Threshold Tuning
 
 ![Probability Distribution](./images/project_4/probability_distribution.png)
 
@@ -765,9 +755,9 @@ Adjusted classification threshold from default 0.5 to 0.385 to:
 * Accept higher false positive rate (25% manual review acceptable)
 * Balance workload reduction with risk mitigation
 
-## Predictive Analysis
+#### Predictive Analysis
 
-### Supervised Learning for Classification
+##### Supervised Learning for Classification
 
 **Training Process:**
 1. Manually labeled 2000+ tender records (2 hours work)
@@ -788,7 +778,7 @@ New Tender Title → TF-IDF Vectorization → SVM Inference → Probability Scor
 * Daily batch processing of new tenders
 * Monthly retraining to prevent model drift
 
-### Enhancement with PDF Content
+##### Enhancement with PDF Content
 
 **One-Hot Encoding of Tender Codes:**
 * Extract CPV (Common Procurement Vocabulary) codes from PDFs
@@ -807,9 +797,9 @@ New Tender Title → TF-IDF Vectorization → SVM Inference → Probability Scor
 
 ### Evidence
 
-## Justification for Ethical AI Standards
+#### Justification for Ethical AI Standards
 
-### Business Case for Transparency
+##### Business Case for Transparency
 
 Without transparent ML practices, the organization risks:
 
@@ -818,7 +808,7 @@ Without transparent ML practices, the organization risks:
 3. **Regulatory Issues** - GDPR Article 22 requires explanation of automated decision-making
 4. **Model Drift** - Unmonitored models degrade over time, causing business harm
 
-### Implementation of Ethical Standards
+##### Implementation of Ethical Standards
 
 **Documentation Requirements:**
 * All Jupyter notebooks maintained in GitHub repository
@@ -837,7 +827,7 @@ Without transparent ML practices, the organization risks:
 * **Development Team (technical)**: "TF-IDF vectorization with Linear SVM, threshold=0.385, F1=0.87"
 * **Executive (business)**: "50% workload reduction, 33% fewer missed opportunities, ROI positive in 6 months"
 
-### Legal Compliance Justification
+##### Legal Compliance Justification
 
 **GDPR Compliance:**
 * Public tender data only (no personal information)
@@ -854,17 +844,15 @@ Without transparent ML practices, the organization risks:
 * Ethical review conducted
 * Compliance checkpoints at each phase
 
-
-
 ---
 
 ## B2: [Pass] Applies relevant legal, ethical, social and professional standards to digital and technology solutions considering both technical and non-technical audiences and in line with organisational guidelines
 
 ### Evidence
 
-## Professional Standards in ML Development
+#### Professional Standards in ML Development
 
-### Version 1 AI Governance Framework
+##### Version 1 AI Governance Framework
 
 Version 1 has established a comprehensive AI Governance framework that ensures:
 
@@ -873,7 +861,7 @@ Version 1 has established a comprehensive AI Governance framework that ensures:
 * **Ethical Review** - Social implications are made clear to all parties involved
 * **Stakeholder Communication** - Both technical and non-technical audiences understand the solution
 
-### Transparency in Machine Learning
+##### Transparency in Machine Learning
 
 For non-technical stakeholders (Sales Team), we provide:
 
@@ -889,14 +877,12 @@ For technical audiences (Development Team, AI Owner), we provide:
 * **Confusion matrices** - Detailed performance metrics
 * **Learning curves** - Model convergence and fit analysis
 
-### Accountability Structure
+##### Accountability Structure
 
 * **AI Owner** - Single point of responsibility for model behavior
 * **Feedback loops** - Continuous improvement based on real-world performance
 * **Update schedule** - Regular retraining prevents model drift
 * **Stage gates** - Go/No-Go decisions at prototype and smoke test phases
-
-
 
 ---
 
@@ -904,9 +890,9 @@ For technical audiences (Development Team, AI Owner), we provide:
 
 ### Evidence
 
-## Organizational Theories Applied
+#### Organizational Theories Applied
 
-### Agile Software Development
+##### Agile Software Development
 
 **Principles Applied:**
 * **Iterative Development** - 2-week sprints with regular review cycles
@@ -920,7 +906,7 @@ For technical audiences (Development Team, AI Owner), we provide:
 * Quick validation of model approaches through Jupyter exploration
 * Automated deployment enabled rapid iteration
 
-### Stage-Gate Process
+##### Stage-Gate Process
 
 **Gates Implemented:**
 1. **Post-Prototype Gate** - Stakeholders review theoretical approach, Go/No-Go for development
@@ -932,7 +918,7 @@ For technical audiences (Development Team, AI Owner), we provide:
 * Ensure stakeholder buy-in at critical junctions
 * Validate assumptions before full investment
 
-### DevOps Culture
+##### DevOps Culture
 
 **Infrastructure as Code (Terraform):**
 * Reproducible deployments eliminate environment drift
@@ -944,7 +930,7 @@ For technical audiences (Development Team, AI Owner), we provide:
 * Automated testing validates changes
 * Lambda functions updated without manual steps
 
-### Knowledge Sharing Practices
+##### Knowledge Sharing Practices
 
 **Lunch and Learn Sessions:**
 * Regular presentations on ML techniques
@@ -956,7 +942,7 @@ For technical audiences (Development Team, AI Owner), we provide:
 * Public blog posts increase visibility
 * Newsletter updates on emerging trends
 
-## Trends and Innovations Leveraged
+#### Trends and Innovations Leveraged
 
 **Modern ML Tooling:**
 * Jupyter notebooks for interactive development
@@ -978,7 +964,7 @@ For technical audiences (Development Team, AI Owner), we provide:
 * Eliminates "works on my machine" problems
 * Enables team-wide contribution without specialized DevOps knowledge
 
-## Recommendations for Ongoing Improvement
+#### Recommendations for Ongoing Improvement
 
 **Monthly Retraining:**
 * Prevent model drift as tender landscape changes
@@ -994,5 +980,3 @@ For technical audiences (Development Team, AI Owner), we provide:
 * After 6-12 months, leverage unlabeled production data
 * Retrain model with combination of labeled and unlabeled tenders
 * Potentially improve generalization to new tender types
-
-

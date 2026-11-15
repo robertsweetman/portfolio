@@ -1,10 +1,9 @@
 # Project 1 - Cybersecurity & Software Development
 
 ## Context
-
 ##### Role and Project Impact
 
-The eTenders project (robertsweetman, 2025) has allowed me to really expand my programming skills around AWS, automation, serverless functions and AI/ML. 
+The eTenders project (robertsweetman, 2025) has allowed me to really expand my programming skills around AWS, automation, serverless functions and AI/ML.
 
 The project is automatically built in Amazon's cloud (AWS) and relies on a number of secret keys. As the sole developer of this application it's been my responsibility to make sure any secrets or sensitive information doesn't immediately leak because this would allow someone to create their own infrastructure for free in the root AWS account. 
 
@@ -13,7 +12,6 @@ If, for example the Claude API key wasn't in a GitHub secret but had been (mista
 The initial architecture, while developer friendly, now needs changing to enforce security best practice.
 
 ## K12: [Pass] Explains core technical concepts for digital and technology solutions, including: Data gathering, data management, and data analysis
-
 ### Evidence
 
 ###### AWS RDS (PostgreSQL) db connection
@@ -27,9 +25,7 @@ In future it could be used to drive further ML improvements via reinforcement le
 
 It's currently open to the internet for ease of development from Windows machine via the PgAdmin4 PostgreSQL client (www.pgadmin.org, n.d.). 
 
-
 ## K16: [Pass] Explains core technical concepts for digital and technology solutions, including: Computer networking concepts
-
 ### Evidence
 
 #### Evaluation of Current State
@@ -100,9 +96,7 @@ AWS and Azure both enforce 2FA for increased account security (AWS, n.d.) with M
 Microsoft research shows that multifactor authentication (MFA) can block more than 99.2% of account compromise attacks, making it one of the most effective security measures available.
 ```
 
-
 ## S12: [Pass] Demonstrates the use of core technical concepts for digital and technology solutions, including: plans, designs and manages simple computer networks
-
 ### Evidence
 
 ##### Architectural changes
@@ -200,9 +194,7 @@ Global Cyberattacks are only increasing in frequency (CheckPoint, 2024) with rep
 
 It only takes one decision maker hesitating on a contract award to make a £5-100 million dent in a companies revenue because reputation has a huge impact on the contract awards process and likelihood of a positive outcome.
 
-
 ## K11: [Pass] Critically evaluates the nature and scope of common vulnerabilities in digital and technology solutions
-
 ### Evidence
 
 ##### Cybersecurity Analysis
@@ -301,9 +293,7 @@ All this needs to be evidenced in this section
 
 -->
 
-
 ## S9: [Pass] Demonstrates the use of core technical concepts for digital and technology solutions, including: security and resilience techniques
-
 ### Evidence
 
 #### Digital and Data Network Security Proposal 
@@ -358,9 +348,7 @@ Since the initial `postgres_dataload` Lamda triggers on a timer the only other s
 
 This depends on changing the database connection process to use AWS IAM database authentication instead but doing so means you're using connection parameters that are stored in AWS Secrets Manager, further increasing security.
 
-
-## B4: [Pass] Commits to continuous professional development; maintaining their knowledge and skills in relation to developments in digital and technology solutions that influence their work
-
+## B4: [Pass] Explains how teams work effectively to produce a digital and technology solution applying relevant organisational theories using up to date awareness of trends and innovations
 ### Evidence
 
 ##### Role and Project Impact
@@ -379,9 +367,7 @@ All the code etc. derives from the implementation of the AI/ML project in module
 
 This includes a full Terraform deployment pipeline so resources that would ordinarily only be visible via the AWS UI are described and deployed from code.
 
-
-## B7: [Pass] Maintains awareness of trends and innovations in the subject area, utilising a range of academic literature, online sources, community interaction, conference attendance and other methods which can deliver business value
-
+## B7: [Pass] Explains how teams work effectively to produce a digital and technology solution applying relevant organisational theories using up to date awareness of trends and innovations
 ### Evidence
 
 ##### Cybersecurity Significance

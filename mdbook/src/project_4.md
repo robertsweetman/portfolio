@@ -1,7 +1,6 @@
 # Project 4 - Integrating Machine Learning and AI to Drive Business Value
 
 ## Context
-
 ##### Overview
 The Irish Government releases a huge range of tenders daily via email. These range from bin collection, recruitment services, building managment all the way through to ones we are interested in - IT services/consulting contracts. 
 
@@ -9,8 +8,10 @@ Wading through this firehose of information manually is time-consuming, ineffici
 
 By training an ML model on the tenders data we should be able to answer the question "Which ones should we 'actually' bid on?" as opposed to having someone wade through 50 new tender opportunities per day.
 
-## K6: [Pass] Explains core technical concepts for digital and technology solutions, including: The approaches and techniques used throughout the digital and technology solution lifecycle and their applicability to an organisation's standards and pre-existing tools
+##### Projected Benefits 
+Having ML and AI provide a 'first look' screening of tenders will save Sales teams time spent on initial screening which translates into focussing only on relevant bids and having more signal & less noise should reduce the chance of missing any opportunities.
 
+## K6: [Pass] Explains core technical concepts for digital and technology solutions, including: The approaches and techniques used throughout the digital and technology solution lifecycle and their applicability to an organisation's standards and pre-existing tools
 ### Evidence
 
 #### Machine Learning and AI principles
@@ -136,239 +137,8 @@ If we use a Logistic (linear) Regression instead, every text feature is treated 
 
 We will see this tendency for decision trees to over-fit in the analysis later.
 
-
-
-## K7: [Pass] Reviews the roles, functions and activities relevant to technology solutions within an organisation
-
-### Evidence
-
-##### How AI and ML integration impacts organisational change
-
-As with any new technology a huge factor associated with it's introduction is trust.
-
-Primarily, can users rely on what they're being told? Can we assemble a body of evidence in the training of tools like this to prove it will work as intended, save on 'drudge' filtering work and not negatively impact the business?
-
-There are many instances where software has been used as a smokescreen for dodging accountability, the Post Office scandal (Lehrer, 2024) being the most egregious recent example. 
-
-Adding AI increases the temptation to simply offload governance entirely to a "black box". Consumers are already abdicating responsibility for major life decisions to AI (‌Dupré, 2025) sometimes very much to their own detriment. Businesses may end up being no different if ethics aren't adhered to.
-
-To address these issues we can take some concrete steps: -
-
-* Making sure that the ML model's workings are explained simply (see Appendix for links to Jupyter Notebooks).
-
-* Appointing an Owner specifically responsible for the behaviour of the AI/ML aspect of the solution. 
-
-* Adding feedback loops and an update schedule so that, even after it's deployed, it can be re-trained and upgraded. 
-
-##### Scope and Objectives
-The report outlines the various approaches to this problem from an ML/AI point of view, including possible training methods and models, data cleaning steps and most importantly whether the solution achieves is business objectives.
-
-Up-front let's say we need to get a fairly high degree of accuracy but not at the expense of missing out possible multi-million euro tender opportunities. We need to keep an eye on the false negative rate while saving the cost of manual effort to filter out tenders we're not interested in.
-
-##### Projected Benefits 
-Having ML and AI provide a 'first look' screening of tenders will save Sales teams time spent on initial screening which translates into focussing only on relevant bids and having more signal & less noise should reduce the chance of missing any opportunities. 
-
-
-#### Team Collaboration and Communication plan
-
-##### Collaboration
-Modern software development now sits on top of a whole tool chain to surface work, encourage transparency and foster communication. In this type of project we'd keep all the code in source control (Git), all the tasks in Jira and run a daily agile-type stand-up to share progress or air any blockers. 
-
-There's usually a chat app like Slack or Teams for quick threads to tackle particular issues or problems.
-
-Outside the feature development being carried out by developers there would be a Team Lead, nominally set with tasking individuals with work as well as acting as an arbiter on technical direction. Possibly there would be a Software Architect fulfilling this role but if it's a smaller project this might be unnecessary. 
-
-The Team Lead would also likely interface to the Project Manager who would have overall responsibility for reporting outwards as to the state of the development, especially in relation to time to completion. Their role involves understanding the true state of the project and communicating this to stake-holders. Expectation management is key here, especially if something un-expected comes up and there _might_ be a possible delay. 
-
-You could easily use dashboards to broadcast the current project state, identify key milestones and plot progress along a gantt chart (see below)
-
-<style>
-  /* Default for dark themes - white text */
-  .mermaid text {
-    fill: white !important;
-  }
-  .mermaid .taskText, 
-  .mermaid .sectionTitle, 
-  .mermaid .grid text, 
-  .mermaid .tickText,
-  .mermaid .titleText,
-  .mermaid .labelText,
-  .mermaid .loopText,
-  .mermaid .actor text {
-    fill: white !important;
-  }
-  
-  /* Handle mdBook light and rust themes - black text */
-  html.light .mermaid text,
-  html.light .mermaid .taskText,
-  html.light .mermaid .sectionTitle,
-  html.light .mermaid .grid text,
-  html.light .mermaid .tickText,
-  html.light .mermaid .titleText,
-  html.light .mermaid .labelText,
-  html.light .mermaid .loopText,
-  html.light .mermaid .actor text,
-  html.rust .mermaid text,
-  html.rust .mermaid .taskText,
-  html.rust .mermaid .sectionTitle,
-  html.rust .mermaid .grid text,
-  html.rust .mermaid .tickText,
-  html.rust .mermaid .titleText,
-  html.rust .mermaid .labelText,
-  html.rust .mermaid .loopText,
-  html.rust .mermaid .actor text {
-    fill: black !important;
-  }
-  
-  /* Ensure dark themes have white text */
-  html.navy .mermaid text,
-  html.navy .mermaid .taskText,
-  html.navy .mermaid .sectionTitle,
-  html.navy .mermaid .grid text,
-  html.navy .mermaid .tickText,
-  html.navy .mermaid .titleText,
-  html.navy .mermaid .labelText,
-  html.navy .mermaid .loopText,
-  html.navy .mermaid .actor text,
-  html.ayu .mermaid text,
-  html.ayu .mermaid .taskText,
-  html.ayu .mermaid .sectionTitle,
-  html.ayu .mermaid .grid text,
-  html.ayu .mermaid .tickText,
-  html.ayu .mermaid .titleText,
-  html.ayu .mermaid .labelText,
-  html.ayu .mermaid .loopText,
-  html.ayu .mermaid .actor text,
-  html.coal .mermaid text,
-  html.coal .mermaid .taskText,
-  html.coal .mermaid .sectionTitle,
-  html.coal .mermaid .grid text,
-  html.coal .mermaid .tickText,
-  html.coal .mermaid .titleText,
-  html.coal .mermaid .labelText,
-  html.coal .mermaid .loopText,
-  html.coal .mermaid .actor text {
-    fill: white !important;
-  }
-  
-  /* Ensure links and other specific elements have correct colors in light themes */
-  html.light .mermaid .flowchart-link,
-  html.rust .mermaid .flowchart-link {
-    stroke: #333 !important;
-  }
-  
-  /* Ensure links have correct colors in dark themes */
-  html.navy .mermaid .flowchart-link,
-  html.ayu .mermaid .flowchart-link,
-  html.coal .mermaid .flowchart-link {
-    stroke: #ccc !important;
-  }
-  
-  /* Additional styles for better visibility in all themes */
-  .mermaid .grid path {
-    stroke-opacity: 0.5;
-  }
-  .mermaid .today {
-    stroke-width: 2px;
-  }
-</style>
-
-```mermaid
-gantt
-    title Prototype
-    dateFormat YYYY-MM-DD
-    axisFormat %b '%y
-    tickInterval 1month
-
-    Stakeholders Discussion :a1, 2025-07-01, 2w
-    Data Gathering         :a2, after a1, 3w
-    Prototype              :a3, after a2, 5w
-    Stakeholders Review :crit, a4, after a3, 1w
-    Go/No-Go Decision       :crit, milestone, a5, after a4, 0d
-```
-
-```mermaid
-gantt
-    title Development
-    dateFormat YYYY-MM-DD
-    axisFormat %b '%y
-    tickInterval 1month
-
-    Architecture :a1, 2025-10-01, 2w
-    Planning :crit, a2, 2025-10-01, 2w
-    Sprint 1 :a3, after a2, 2w
-    Sprint 2 :a4, after a3, 2w
-    Sprint 3 :a5, after a4, 2w
-    Sprint 4 :a6, after a5, 2w
-```
-
-```mermaid
-gantt
-    title Deployment
-    dateFormat YYYY-MM-DD
-    axisFormat %b '%y
-    tickInterval 1month
-
-    IaC deployment :a1, 2026-01-01, 1w
-    Smoke Test :a2, after a1, 3w
-    Go/No-Go Live :milestone, crit, a3, after a2, 0d
-    Live Trial :a4, after a3, 2w
-    Gather User Feedback :a5, after a4, 2w
-    Update Model :crit, a6, after a5, 2w
-```
-
-There are stage gates following prototype delivery and after the model has been deployed (smoke test) for a number of weeks. This first gate gives stakeholders the opportunity to see how the application would work in theory. The second gate is for developers to check that the solution actually works in practice before 'go-live'. 
-
-Then, once it's been running for two to four weeks updates can be made based on live data and user feedback. Maybe there's some part of the performance that needs tweaking?
-
-##### Sharing Best Practices
-From my experience within Version 1 the primary way that best practices are shared is via 'lunch and learn' sessions. It's always challenging to pull people's attention from client work so recorded sessions make the information more accessible. 
-
-Keeping these up-to-date might mean creating your own internal news letter, blog or wiki that updates the same topic when new or better ways of doing things come to light. Making this content public also massively boosts the organisations visibility and credibility in the wider world.
-
-
-
-## K13: [Pass] Demonstrates the use of core technical concepts for digital and technology solutions, including: applies the principles of data analysis for digital and technology solutions
-
-### Evidence
-
-##### Data Ingestion, Investigation and Prep
-
-Each record consists of the following:-
-
-**tender records** table
-![Tender Records Table](./images/project_4/tender_records_table.png)
-
-All this has been pulled into PostgreSQL database for easy manipulation. We'll 'drop' all the date columns as they're irrelevant to our question.
-
-Then we can go through each column and decide whether it needs further attention.
-
-###### Labelling the 'bid' column for Supervised learning
-
-To train a supervised learning model on this data we've had to manually label 2000+ records with bid (1) or no bid (0), which took around 2 hours.
-
-###### Data Manipulation/Cleanup
-
-#### id
-This can be removed since `resource_id` is unique, we don't need another id. 
-
-###### title
-This is the key field we're looking at training the model on to predict whether we should bid (1) or not (0). Happily EVERY record has a title field so we don't have to deal with null data in this case. 
-
-###### contracting authority (ca)
-CA has a finite number of possibilities so we're going to one-hot encode this.
-
-###### procedure
-Procedure has a finite number of possibilities so we're going to one-hot encode this.
-
-###### pdf_url
-Not relevant so can be removed from the training data. We could _maybe_ turn this into a data point but this is problematic as 25% of tenders don't have a PDF attached to them.
-
-###### value
-Again nearly 50% of records don't have a value and making any assumptions about these (filling in values, adding a mean) would likely only introduce innacuracies. Conversely there might be multi-million pound values hidded in the PDF content. So with this in mind we can't rely on value as a feature of the tender data for ML training. 
-
-
 ## K19: [Pass] Applies relevant legal, ethical, social and professional standards to digital and technology solutions considering both technical and non-technical audiences and in line with organisational guidelines
+**[Distinction]** Justifies the application of relevant legal, ethical, social and professional standards to digital and technology solutions.
 
 ### Evidence
 
@@ -386,9 +156,7 @@ That said, for this to be more than a proof of concept/demo it would be appropri
 
 However, with this in mind, it's already been proposed internally within V1 to respond to the OGP's question about how AI/ML might help them manage the tender process, increase transparency and modernise how they publish tenders by sharing this project/proof of concept with them. 
 
-
 ## K24: [Pass] Describes how to interpret and implement a design, compliant with functional, non-functional and security requirements
-
 ### Evidence
 
 ###### Requirements Gathering
@@ -400,9 +168,7 @@ The report outlines the various approaches to this problem from an ML/AI point o
 
 Up-front let's say we need to get a fairly high degree of accuracy but not at the expense of missing out possible multi-million euro tender opportunities. We need to keep an eye on the false negative rate while saving the cost of manual effort to filter out tenders we're not interested in.
 
-
 ## S4: [Pass] Demonstrates the use of core technical concepts for digital and technology solutions, including: initiate, design, code, test and debug a software component for a digital and technology solution
-
 ### Evidence
 
 ###### Development
@@ -465,243 +231,45 @@ graph TD;
   style N fill:#c5cae9,color:#000
 ```
 
+#### Implementation and Data Product Design
 
-#### Appendix
+##### Data Ingestion, Investigation and Prep
 
-There's a large GitHub repo with many moving parts associated with this project.
+Each record consists of the following:-
 
-module_2 repo
-* https://github.com/robertsweetman/module_2
-* Repository for all the code used in this project
-  * aws_backend_bootstrap
-    * set up S3 backend state bucket for terraform
-  * aws_deploy_infrastructure 
-    * deploy all AWS resources using infrastructure as code
-  * crates - rust based AWS Lambda code for actually running the pipeline
-    * get_data
-      * get the etenders data
-      * format it correctly with the correct types
-      * store content in an AWS RDS PostgreSQL database
-      * if there's a PDF for the tender, get that as well
-      * if there's a PDF, count how many IT related codes there are in the PDF text
-      * record the text, number of codes and what they are if there is a PDF, add these to the PostgreSQL database
-    * pdf_processing (see note 1)
-    * postgres_dataload (see note 1)
-  * mc-server
-    * wrote a (minimally functional) MCP server to show other ways that data in the AWS RDS Postgresql db could be queried
-  * mdbook 
-    * source for PDF creation for the submission
-      * also hosts the content on https://robertsweetman.github.io/module_2/
-  * python 
-    * db_utils.py make the database content available as a dataframe
-    * etenders.ipynb - see below
+**tender records** table
+![Tender Records Table](./images/project_4/tender_records_table.png)
 
-##### etenders.ipynb 
-* https://github.com/robertsweetman/module_2/blob/main/python/etenders.ipynb
-* Initial investigative ML model workbook, sets out all the learning and discovery steps as well as model validation & hyper-parameter tuning
+All this has been pulled into PostgreSQL database for easy manipulation. We'll 'drop' all the date columns as they're irrelevant to our question.
 
-##### decision_tree_model.ipynb
-* https://github.com/robertsweetman/module_2/blob/main/python/decision_tree_model.ipynb
-* Looking at decision tree approach and why this won't work in this case, with diagrams/plots for proof
+Then we can go through each column and decide whether it needs further attention.
 
-##### baseline_text_models.ipynb
-* https://github.com/robertsweetman/module_2/blob/main/python/baseline_text_models.ipynb
-* Checking out various text parameterization methods
+###### Labelling the 'bid' column for Supervised learning
 
-##### hybrid_text_model_main.ipynb
-* https://github.com/robertsweetman/module_2/blob/main/python/hybrid_text_model_main.ipynb
-* Looking at hyper-parameter tuning on training data
+To train a supervised learning model on this data we've had to manually label 2000+ records with bid (1) or no bid (0), which took around 2 hours.
 
-##### tfidf_linearSVM.ipynb
-* https://github.com/robertsweetman/module_2/blob/main/python/tfidf_linearSVM.ipynb
-* Final model selection and validation, using TF-IDF vectorization and linear SVM classifier
+###### Data Manipulation/Cleanup
 
-##### tfidf_linearSVM_pdf_content.ipynb
-* https://github.com/robertsweetman/module_2/blob/main/python/tfidf_linearSVM_pdf_content.ipynb
-* Adding more content from the tenders with PDF's to enhance the conclusion
+###### id
+This can be removed since `resource_id` is unique, we don't need another id. 
 
-##### comparison.ipynb
-* https://github.com/robertsweetman/module_2/blob/main/python/comparison.ipynb
-* Comparing the tfidf_linearSVM training with adding the PDF content
+###### title
+This is the key field we're looking at training the model on to predict whether we should bid (1) or not (0). Happily EVERY record has a title field so we don't have to deal with null data in this case. 
 
-##### codes.txt
-* https://github.com/robertsweetman/module_2/blob/main/codes.txt
-* tender codes that we, as a consultancy are interested in.
+###### contracting authority (ca)
+CA has a finite number of possibilities so we're going to one-hot encode this.
 
-**Note 1**: postgres_dataload and pdf_processing Lambda functions were an attempt to use AWS Simple Queue Service (SQS) to asynchronously handle the 'pdf_processing' part of the data ingest pipeline. The idea being that we could add other POST(s) to the queue for a different lambda to process and keep the separation of concerns whereby one Lambda function executes one task. 
+###### procedure
+Procedure has a finite number of possibilities so we're going to one-hot encode this.
 
-However, running out of time this was abandoned as an approach as it wasn't possible to properly test whether ALL pdf_processing requests were being handled correctly when pulled from SQS. Ideally this would be the way to do things and should be the goal, with a bit more experience of queueing systems!
+###### pdf_url
+Not relevant so can be removed from the training data. We could _maybe_ turn this into a data point but this is problematic as 25% of tenders don't have a PDF attached to them.
 
-
-## S7: [Pass] Explains how teams work effectively to produce a digital and technology solution applying relevant organisational theories using up to date awareness of trends and innovations
-
-### Evidence
-
-#### Team Collaboration and Communication plan
-
-##### Collaboration
-Modern software development now sits on top of a whole tool chain to surface work, encourage transparency and foster communication. In this type of project we'd keep all the code in source control (Git), all the tasks in Jira and run a daily agile-type stand-up to share progress or air any blockers. 
-
-There's usually a chat app like Slack or Teams for quick threads to tackle particular issues or problems.
-
-Outside the feature development being carried out by developers there would be a Team Lead, nominally set with tasking individuals with work as well as acting as an arbiter on technical direction. Possibly there would be a Software Architect fulfilling this role but if it's a smaller project this might be unnecessary. 
-
-The Team Lead would also likely interface to the Project Manager who would have overall responsibility for reporting outwards as to the state of the development, especially in relation to time to completion. Their role involves understanding the true state of the project and communicating this to stake-holders. Expectation management is key here, especially if something un-expected comes up and there _might_ be a possible delay. 
-
-You could easily use dashboards to broadcast the current project state, identify key milestones and plot progress along a gantt chart (see below)
-
-<style>
-  /* Default for dark themes - white text */
-  .mermaid text {
-    fill: white !important;
-  }
-  .mermaid .taskText, 
-  .mermaid .sectionTitle, 
-  .mermaid .grid text, 
-  .mermaid .tickText,
-  .mermaid .titleText,
-  .mermaid .labelText,
-  .mermaid .loopText,
-  .mermaid .actor text {
-    fill: white !important;
-  }
-  
-  /* Handle mdBook light and rust themes - black text */
-  html.light .mermaid text,
-  html.light .mermaid .taskText,
-  html.light .mermaid .sectionTitle,
-  html.light .mermaid .grid text,
-  html.light .mermaid .tickText,
-  html.light .mermaid .titleText,
-  html.light .mermaid .labelText,
-  html.light .mermaid .loopText,
-  html.light .mermaid .actor text,
-  html.rust .mermaid text,
-  html.rust .mermaid .taskText,
-  html.rust .mermaid .sectionTitle,
-  html.rust .mermaid .grid text,
-  html.rust .mermaid .tickText,
-  html.rust .mermaid .titleText,
-  html.rust .mermaid .labelText,
-  html.rust .mermaid .loopText,
-  html.rust .mermaid .actor text {
-    fill: black !important;
-  }
-  
-  /* Ensure dark themes have white text */
-  html.navy .mermaid text,
-  html.navy .mermaid .taskText,
-  html.navy .mermaid .sectionTitle,
-  html.navy .mermaid .grid text,
-  html.navy .mermaid .tickText,
-  html.navy .mermaid .titleText,
-  html.navy .mermaid .labelText,
-  html.navy .mermaid .loopText,
-  html.navy .mermaid .actor text,
-  html.ayu .mermaid text,
-  html.ayu .mermaid .taskText,
-  html.ayu .mermaid .sectionTitle,
-  html.ayu .mermaid .grid text,
-  html.ayu .mermaid .tickText,
-  html.ayu .mermaid .titleText,
-  html.ayu .mermaid .labelText,
-  html.ayu .mermaid .loopText,
-  html.ayu .mermaid .actor text,
-  html.coal .mermaid text,
-  html.coal .mermaid .taskText,
-  html.coal .mermaid .sectionTitle,
-  html.coal .mermaid .grid text,
-  html.coal .mermaid .tickText,
-  html.coal .mermaid .titleText,
-  html.coal .mermaid .labelText,
-  html.coal .mermaid .loopText,
-  html.coal .mermaid .actor text {
-    fill: white !important;
-  }
-  
-  /* Ensure links and other specific elements have correct colors in light themes */
-  html.light .mermaid .flowchart-link,
-  html.rust .mermaid .flowchart-link {
-    stroke: #333 !important;
-  }
-  
-  /* Ensure links have correct colors in dark themes */
-  html.navy .mermaid .flowchart-link,
-  html.ayu .mermaid .flowchart-link,
-  html.coal .mermaid .flowchart-link {
-    stroke: #ccc !important;
-  }
-  
-  /* Additional styles for better visibility in all themes */
-  .mermaid .grid path {
-    stroke-opacity: 0.5;
-  }
-  .mermaid .today {
-    stroke-width: 2px;
-  }
-</style>
-
-```mermaid
-gantt
-    title Prototype
-    dateFormat YYYY-MM-DD
-    axisFormat %b '%y
-    tickInterval 1month
-
-    Stakeholders Discussion :a1, 2025-07-01, 2w
-    Data Gathering         :a2, after a1, 3w
-    Prototype              :a3, after a2, 5w
-    Stakeholders Review :crit, a4, after a3, 1w
-    Go/No-Go Decision       :crit, milestone, a5, after a4, 0d
-```
-
-```mermaid
-gantt
-    title Development
-    dateFormat YYYY-MM-DD
-    axisFormat %b '%y
-    tickInterval 1month
-
-    Architecture :a1, 2025-10-01, 2w
-    Planning :crit, a2, 2025-10-01, 2w
-    Sprint 1 :a3, after a2, 2w
-    Sprint 2 :a4, after a3, 2w
-    Sprint 3 :a5, after a4, 2w
-    Sprint 4 :a6, after a5, 2w
-```
-
-```mermaid
-gantt
-    title Deployment
-    dateFormat YYYY-MM-DD
-    axisFormat %b '%y
-    tickInterval 1month
-
-    IaC deployment :a1, 2026-01-01, 1w
-    Smoke Test :a2, after a1, 3w
-    Go/No-Go Live :milestone, crit, a3, after a2, 0d
-    Live Trial :a4, after a3, 2w
-    Gather User Feedback :a5, after a4, 2w
-    Update Model :crit, a6, after a5, 2w
-```
-
-There are stage gates following prototype delivery and after the model has been deployed (smoke test) for a number of weeks. This first gate gives stakeholders the opportunity to see how the application would work in theory. The second gate is for developers to check that the solution actually works in practice before 'go-live'. 
-
-Then, once it's been running for two to four weeks updates can be made based on live data and user feedback. Maybe there's some part of the performance that needs tweaking?
-
-##### Sharing Best Practices
-From my experience within Version 1 the primary way that best practices are shared is via 'lunch and learn' sessions. It's always challenging to pull people's attention from client work so recorded sessions make the information more accessible. 
-
-Keeping these up-to-date might mean creating your own internal news letter, blog or wiki that updates the same topic when new or better ways of doing things come to light. Making this content public also massively boosts the organisations visibility and credibility in the wider world.
-
-
-
-## S10: [Pass] Demonstrates the use of core technical concepts for digital and technology solutions, including: initiates, designs, implements and debugs a data product for a digital and technology solution
-
-### Evidence
+###### value
+Again nearly 50% of records don't have a value and making any assumptions about these (filling in values, adding a mean) would likely only introduce innacuracies. Conversely there might be multi-million pound values hidded in the PDF content. So with this in mind we can't rely on value as a feature of the tender data for ML training. 
 
 ##### Decision Tree
-Remember from [Model Selection and Methodologies](./3_developing_ai_and_ml_apps.html#model-selection-and-methodologies) that we don't believe Decision Trees will actually work well. Can we show this? 
+Remember from [Model Selection and Methodologies](#model-selection-and-methodologies) that we don't believe Decision Trees will actually work well. Can we show this? 
 
 Refer to [decision_tree_model.ipynb](https://github.com/robertsweetman/module_2/blob/main/python/decision_tree_model.ipynb) preview view for the code. 
 
@@ -716,67 +284,6 @@ This approach really falls down when looking for bids. We're only hitting 41% of
 We can also show visually how this type of approach over-fits quite badly by plotting the learning curve. The model performs much better on data it's seen before (blue) than new data (orange). The curves don't converge and they should if the fit was good. 
 
 Most importantly, even when you add more training data the gap doesn't close which indicates the model has learnt patterns based on that only, rather than a general pattern.
-
-
-##### Final TFIDF + Linear SVM model
-
-Refer to [tfidf_linearSVM.ipynb](https://github.com/robertsweetman/module_2/blob/main/python/tfidf_linearSVM.ipynb) for the code.
-
-Let's take everything we've learned about our problem space and put it into play.
-
-![Analysis and Confusion Matrix](./images/project_4/tfidf_analysis.png)
-
-What we see is that we're now hitting few false negatives and have a high recall but to get this we've had to set our probability threshold very low indeed, meaning workers are still having to review 25% of bids, given the high false positive rate.
-
-![TFIDF Summary](./images/project_4/tfidf_summary.png)
-
-We can attempt to add a cost weighting to false negatives but at this threshold level that has zero impact. Changing the threshold directly impacts the decision boundary so we can impact false negatives that way BUT we've now got to a point where it's clear that the model needs more data. 
-
-![Probability Distribution](./images/project_4/probability_distribution.png)
-
-Around the 0.385 threshold there's nothing we can do to influence the model further. 
-
-![Learning Curve](./images/project_4/learning_curve_svm.png)
-
-Since the scores are still a way away and haven't converged this also suggests we could do with more data... However, on the positive side it's not over or under-fitting like the Decistion Tree.
-
-More on how to improve things in the [Recommendations and Conclusions](#recommendations-and-conclusions) section.
-
-
-#### Recommendations and Conclusions
-
-##### Model Summary
-
-We made a good start trying to pick bid opportunites from the tender title only but this resulted in too many false negatives. 
-
-We should manually review 25% of the tenders that don't have PDFs and add more context to the training process for the others by including the following additional data: 
-
-* Tender codes from the PDF - via One Hot Encoding
-  * We know, as a business, which tender codes we're interested in so there's a selection machanism here. (see appendix)
-* A count of the number of codes we find in a PDF
-* Additional amount of text from the PDF's
-  * The "Lot 5.x.x" section of the PDF contains more details about the requirements
-
-Then it's pretty simple to run a comparison. Refer to links to **tfidf_linearSVM_pdf_content.ipynb** and **comparison.ipynb** in the appendix for the code.
-
-![Enhanced Content Comparison](./images/project_4/enhanced_content_comparison.png)
-
-By enhancing the model we've reduced the number of missed opportunities by nearly a third. 
-
-This does mean manually reviewing more bids but we've still cut that by 50% and are in a good place when it comes to false negatives.  
-
-##### Conclusion
-
-Recommend deploying this and re-running the training monthly to update it as new tenders are published.
-
-##### Further Improvements and Ongoing Evaluation
-
-At some point an additional step would be to cross reference the bid/tenders database with "actual bids won" as well. This could add another layer to the entire exercise whereby it might also be possible to further increase the accuracy of our tender submission scanning and (with enough wins) possibly predict, based on past successes, whether a new tender is likely something we might win also.
-
-
-## S11: [Pass] Determine and use appropriate data analysis techniques. For example, Text, Statistical, Diagnostic or Predictive Analysis to assess a digital and technology solutions
-
-### Evidence
 
 ##### Linear Regression Investigation
 
@@ -845,8 +352,264 @@ Since the scores are still a way away and haven't converged this also suggests w
 
 More on how to improve things in the [Recommendations and Conclusions](#recommendations-and-conclusions) section.
 
+#### Recommendations and Conclusions
+
+##### Model Summary
+
+We made a good start trying to pick bid opportunites from the tender title only but this resulted in too many false negatives. 
+
+We should manually review 25% of the tenders that don't have PDFs and add more context to the training process for the others by including the following additional data: 
+
+* Tender codes from the PDF - via One Hot Encoding
+  * We know, as a business, which tender codes we're interested in so there's a selection machanism here. (see appendix)
+* A count of the number of codes we find in a PDF
+* Additional amount of text from the PDF's
+  * The "Lot 5.x.x" section of the PDF contains more details about the requirements
+
+Then it's pretty simple to run a comparison. Refer to links to **tfidf_linearSVM_pdf_content.ipynb** and **comparison.ipynb** in the appendix for the code.
+
+![Enhanced Content Comparison](./images/project_4/enhanced_content_comparison.png)
+
+By enhancing the model we've reduced the number of missed opportunities by nearly a third. 
+
+This does mean manually reviewing more bids but we've still cut that by 50% and are in a good place when it comes to false negatives.  
+
+##### Conclusion
+
+Recommend deploying this and re-running the training monthly to update it as new tenders are published.
+
+##### Further Improvements and Ongoing Evaluation
+
+At some point an additional step would be to cross reference the bid/tenders database with "actual bids won" as well. This could add another layer to the entire exercise whereby it might also be possible to further increase the accuracy of our tender submission scanning and (with enough wins) possibly predict, based on past successes, whether a new tender is likely something we might win also.
+
+#### Appendix
+
+There's a large GitHub repo with many moving parts associated with this project.
+
+module_2 repo
+* https://github.com/robertsweetman/module_2
+* Repository for all the code used in this project
+  * aws_backend_bootstrap
+    * set up S3 backend state bucket for terraform
+  * aws_deploy_infrastructure 
+    * deploy all AWS resources using infrastructure as code
+  * crates - rust based AWS Lambda code for actually running the pipeline
+    * get_data
+      * get the etenders data
+      * format it correctly with the correct types
+      * store content in an AWS RDS PostgreSQL database
+      * if there's a PDF for the tender, get that as well
+      * if there's a PDF, count how many IT related codes there are in the PDF text
+      * record the text, number of codes and what they are if there is a PDF, add these to the PostgreSQL database
+    * pdf_processing (see note 1)
+    * postgres_dataload (see note 1)
+  * mc-server
+    * wrote a (minimally functional) MCP server to show other ways that data in the AWS RDS Postgresql db could be queried
+  * mdbook 
+    * source for PDF creation for the submission
+      * also hosts the content on https://robertsweetman.github.io/module_2/
+  * python 
+    * db_utils.py make the database content available as a dataframe
+    * etenders.ipynb - see below
+
+##### etenders.ipynb 
+* https://github.com/robertsweetman/module_2/blob/main/python/etenders.ipynb
+* Initial investigative ML model workbook, sets out all the learning and discovery steps as well as model validation & hyper-parameter tuning
+
+##### decision_tree_model.ipynb
+* https://github.com/robertsweetman/module_2/blob/main/python/decision_tree_model.ipynb
+* Looking at decision tree approach and why this won't work in this case, with diagrams/plots for proof
+
+##### baseline_text_models.ipynb
+* https://github.com/robertsweetman/module_2/blob/main/python/baseline_text_models.ipynb
+* Checking out various text parameterization methods
+
+##### hybrid_text_model_main.ipynb
+* https://github.com/robertsweetman/module_2/blob/main/python/hybrid_text_model_main.ipynb
+* Looking at hyper-parameter tuning on training data
+
+##### tfidf_linearSVM.ipynb
+* https://github.com/robertsweetman/module_2/blob/main/python/tfidf_linearSVM.ipynb
+* Final model selection and validation, using TF-IDF vectorization and linear SVM classifier
+
+##### tfidf_linearSVM_pdf_content.ipynb
+* https://github.com/robertsweetman/module_2/blob/main/python/tfidf_linearSVM_pdf_content.ipynb
+* Adding more content from the tenders with PDF's to enhance the conclusion
+
+##### comparison.ipynb
+* https://github.com/robertsweetman/module_2/blob/main/python/comparison.ipynb
+* Comparing the tfidf_linearSVM training with adding the PDF content
+
+##### codes.txt
+* https://github.com/robertsweetman/module_2/blob/main/codes.txt
+* tender codes that we, as a consultancy are interested in.
+
+**Note 1**: postgres_dataload and pdf_processing Lambda functions were an attempt to use AWS Simple Queue Service (SQS) to asynchronously handle the 'pdf_processing' part of the data ingest pipeline. The idea being that we could add other POST(s) to the queue for a different lambda to process and keep the separation of concerns whereby one Lambda function executes one task. 
+
+However, running out of time this was abandoned as an approach as it wasn't possible to properly test whether ALL pdf_processing requests were being handled correctly when pulled from SQS. Ideally this would be the way to do things and should be the goal, with a bit more experience of queueing systems!
+
+## S7: [Pass] Explains how teams work effectively to produce a digital and technology solution applying relevant organisational theories using up to date awareness of trends and innovations
+### Evidence
+
+#### Team Collaboration and Communication plan
+
+##### Collaboration
+Modern software development now sits on top of a whole tool chain to surface work, encourage transparency and foster communication. In this type of project we'd keep all the code in source control (Git), all the tasks in Jira and run a daily agile-type stand-up to share progress or air any blockers. 
+
+There's usually a chat app like Slack or Teams for quick threads to tackle particular issues or problems.
+
+Outside the feature development being carried out by developers there would be a Team Lead, nominally set with tasking individuals with work as well as acting as an arbiter on technical direction. Possibly there would be a Software Architect fulfilling this role but if it's a smaller project this might be unnecessary. 
+
+The Team Lead would also likely interface to the Project Manager who would have overall responsibility for reporting outwards as to the state of the development, especially in relation to time to completion. Their role involves understanding the true state of the project and communicating this to stake-holders. Expectation management is key here, especially if something un-expected comes up and there _might_ be a possible delay. 
+
+You could easily use dashboards to broadcast the current project state, identify key milestones and plot progress along a gantt chart (see below)
+
+<style>
+  /* Default for dark themes - white text */
+  .mermaid text {
+    fill: white !important;
+  }
+  .mermaid .taskText, 
+  .mermaid .sectionTitle, 
+  .mermaid .grid text, 
+  .mermaid .tickText,
+  .mermaid .titleText,
+  .mermaid .labelText,
+  .mermaid .loopText,
+  .mermaid .actor text {
+    fill: white !important;
+  }
+  
+  /* Handle mdBook light and rust themes - black text */
+  html.light .mermaid text,
+  html.light .mermaid .taskText,
+  html.light .mermaid .sectionTitle,
+  html.light .mermaid .grid text,
+  html.light .mermaid .tickText,
+  html.light .mermaid .titleText,
+  html.light .mermaid .labelText,
+  html.light .mermaid .loopText,
+  html.light .mermaid .actor text,
+  html.rust .mermaid text,
+  html.rust .mermaid .taskText,
+  html.rust .mermaid .sectionTitle,
+  html.rust .mermaid .grid text,
+  html.rust .mermaid .tickText,
+  html.rust .mermaid .titleText,
+  html.rust .mermaid .labelText,
+  html.rust .mermaid .loopText,
+  html.rust .mermaid .actor text {
+    fill: black !important;
+  }
+  
+  /* Ensure dark themes have white text */
+  html.navy .mermaid text,
+  html.navy .mermaid .taskText,
+  html.navy .mermaid .sectionTitle,
+  html.navy .mermaid .grid text,
+  html.navy .mermaid .tickText,
+  html.navy .mermaid .titleText,
+  html.navy .mermaid .labelText,
+  html.navy .mermaid .loopText,
+  html.navy .mermaid .actor text,
+  html.ayu .mermaid text,
+  html.ayu .mermaid .taskText,
+  html.ayu .mermaid .sectionTitle,
+  html.ayu .mermaid .grid text,
+  html.ayu .mermaid .tickText,
+  html.ayu .mermaid .titleText,
+  html.ayu .mermaid .labelText,
+  html.ayu .mermaid .loopText,
+  html.ayu .mermaid .actor text,
+  html.coal .mermaid text,
+  html.coal .mermaid .taskText,
+  html.coal .mermaid .sectionTitle,
+  html.coal .mermaid .grid text,
+  html.coal .mermaid .tickText,
+  html.coal .mermaid .titleText,
+  html.coal .mermaid .labelText,
+  html.coal .mermaid .loopText,
+  html.coal .mermaid .actor text {
+    fill: white !important;
+  }
+  
+  /* Ensure links and other specific elements have correct colors in light themes */
+  html.light .mermaid .flowchart-link,
+  html.rust .mermaid .flowchart-link {
+    stroke: #333 !important;
+  }
+  
+  /* Ensure links have correct colors in dark themes */
+  html.navy .mermaid .flowchart-link,
+  html.ayu .mermaid .flowchart-link,
+  html.coal .mermaid .flowchart-link {
+    stroke: #ccc !important;
+  }
+  
+  /* Additional styles for better visibility in all themes */
+  .mermaid .grid path {
+    stroke-opacity: 0.5;
+  }
+  .mermaid .today {
+    stroke-width: 2px;
+  }
+</style>
+
+```mermaid
+gantt
+    title Prototype
+    dateFormat YYYY-MM-DD
+    axisFormat %b '%y
+    tickInterval 1month
+
+    Stakeholders Discussion :a1, 2025-07-01, 2w
+    Data Gathering         :a2, after a1, 3w
+    Prototype              :a3, after a2, 5w
+    Stakeholders Review :crit, a4, after a3, 1w
+    Go/No-Go Decision       :crit, milestone, a5, after a4, 0d
+```
+
+```mermaid
+gantt
+    title Development
+    dateFormat YYYY-MM-DD
+    axisFormat %b '%y
+    tickInterval 1month
+
+    Architecture :a1, 2025-10-01, 2w
+    Planning :crit, a2, 2025-10-01, 2w
+    Sprint 1 :a3, after a2, 2w
+    Sprint 2 :a4, after a3, 2w
+    Sprint 3 :a5, after a4, 2w
+    Sprint 4 :a6, after a5, 2w
+```
+
+```mermaid
+gantt
+    title Deployment
+    dateFormat YYYY-MM-DD
+    axisFormat %b '%y
+    tickInterval 1month
+
+    IaC deployment :a1, 2026-01-01, 1w
+    Smoke Test :a2, after a1, 3w
+    Go/No-Go Live :milestone, crit, a3, after a2, 0d
+    Live Trial :a4, after a3, 2w
+    Gather User Feedback :a5, after a4, 2w
+    Update Model :crit, a6, after a5, 2w
+```
+
+There are stage gates following prototype delivery and after the model has been deployed (smoke test) for a number of weeks. This first gate gives stakeholders the opportunity to see how the application would work in theory. The second gate is for developers to check that the solution actually works in practice before 'go-live'. 
+
+Then, once it's been running for two to four weeks updates can be made based on live data and user feedback. Maybe there's some part of the performance that needs tweaking?
+
+##### Sharing Best Practices
+From my experience within Version 1 the primary way that best practices are shared is via 'lunch and learn' sessions. It's always challenging to pull people's attention from client work so recorded sessions make the information more accessible. 
+
+Keeping these up-to-date might mean creating your own internal news letter, blog or wiki that updates the same topic when new or better ways of doing things come to light. Making this content public also massively boosts the organisations visibility and credibility in the wider world.
 
 ## S15: [Pass] Applies relevant legal, ethical, social and professional standards to digital and technology solutions considering both technical and non-technical audiences and in line with organisational guidelines
+**[Distinction]** Justifies the application of relevant legal, ethical, social and professional standards to digital and technology solutions.
 
 ### Evidence
 
@@ -864,9 +627,7 @@ That said, for this to be more than a proof of concept/demo it would be appropri
 
 However, with this in mind, it's already been proposed internally within V1 to respond to the OGP's question about how AI/ML might help them manage the tender process, increase transparency and modernise how they publish tenders by sharing this project/proof of concept with them. 
 
-
 ## B2: [Pass] Applies relevant legal, ethical, social and professional standards to digital and technology solutions considering both technical and non-technical audiences and in line with organisational guidelines
-
 ### Evidence
 
 ##### How AI and ML integration impacts organisational change
@@ -927,9 +688,7 @@ Loige.co. (2023). Why you should consider Rust for your Lambdas. [online] Availa
 
 ‌
 
-
 ## B6: [Pass] Explains how teams work effectively to produce a digital and technology solution applying relevant organisational theories using up to date awareness of trends and innovations
-
 ### Evidence
 
 #### Team Collaboration and Communication plan

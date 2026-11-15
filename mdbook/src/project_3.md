@@ -1,7 +1,6 @@
 # Project 3 - Advancing your Data Strategy and Governance
 
 ## Context
-
 #### Introduction - Ministry of Justice
 
 * Responsible for Prison Facilities, Prison Staff, Courts, Compensation, Finances and Prisoners UK Wide.[(1)](#references)
@@ -12,9 +11,7 @@
 
 * MOJ sits under the overall UK Gov Digital Strategy[(2)](#references), which now has a significant AI component.[(3)](#references)
 
-
 ## K7: [Pass] Reviews the roles, functions and activities relevant to technology solutions within an organisation
-
 ### Evidence
 
 #### Current Data Strategy and Governance
@@ -96,9 +93,7 @@ block-beta
 
 Unlike many other UK Gov departments - the MoJ has a CTO! 
 
-
 ## K9: [Pass] Describes the concepts and principles of leadership and management as they relate to their role and how they apply them
-
 ### Evidence
 
 #### Implementation
@@ -152,10 +147,7 @@ flowchart TD
 | Consolidate | Build out the product & test internally |
 | Anchor | Re-affirm the vision, strategy and outcomes before public go-live |
 
-
-
 ## K10: [Pass] Describes the concepts and principles of leadership and management as they relate to their role and how they apply them
-
 ### Evidence
 
 #### Risks and Mitigation
@@ -217,10 +209,8 @@ Personnel
     - Create an internal team of experts whose job it is to train others and share knowledge
     - Create training centered around the goal
 
-
-
-
 ## K20: [Pass] Explains sustainable development approaches within digital technologies as they relate to their role including diversity and inclusion
+**[Distinction]** Evaluates the impact of sustainable digital technology practices of their organisation.
 
 ### Evidence
 
@@ -306,9 +296,7 @@ _Bangladeshi, Pakistani and Black Caribbean groups received significantly longer
 * Leverage this project to attract AI talent into government
   * The 27% pension contribution for Civil Servants doesn't hurt either...
 
-
 ## S8: [Pass] Describes the concepts and principles of leadership and management as they relate to their role and how they apply them
-
 ### Evidence
 
 #### Timescales for Change
@@ -450,9 +438,7 @@ gantt
 
 Assessments will be ongoing to course correct to meet the goals over the long term.
 
-
 ## B8: [Pass] Explains sustainable development approaches within digital technologies as they relate to their role including diversity and inclusion
-
 ### Evidence
 
 #### Gap Analysis

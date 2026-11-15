@@ -1,13 +1,11 @@
 # Project 7 - Software Testing and Design Patterns
 
 ## Context
-
 #### Quality Diagnosis <!-- 500 words -->
 
 The organisation is seeking to speed up application delivery by leveraging AI in both product design and development. This has knock-on effects for how software quality is guaranteed, changing project delivery timescales and the legacy agile-based (Gitlab, n.d.) app design, governance, coding, testing and change management process. We look at the current process first, to compare it with the new AI-driven approach.
 
 ## K8: [Pass] Explains how teams work effectively to produce a digital and technology solution applying relevant organisational theories using up to date awareness of trends and innovations
-
 ### Evidence
 
 ##### Current Development Practice
@@ -148,9 +146,7 @@ TO REACH A:
 - Synthesise evidence from multiple credible sources to justify trade-offs in communication and collaboration strategy
 -->
 
-
 ## K21: [Pass] Describes scenarios covering all stages of a development lifecycle, identifying techniques and methods are applied in each case
-
 ### Evidence
 
 #### Quality Diagnosis <!-- 500 words -->
@@ -441,9 +437,7 @@ TO REACH A:
 - Connect design decisions, testing outcomes, and quality impact in an original and professionally convincing way
 -->
 
-
 ## K22: [Pass] Explains the principles of a range of development techniques, for each stage of the software development cycle that produce artefacts and the contexts in which they can be applied
-
 ### Evidence
 
 #### Design Evaluation and Architectural Decisions <!-- 1100 words -->
@@ -662,9 +656,7 @@ TO REACH A:
 - Connect design decisions, testing outcomes, and quality impact in an original and professionally convincing way
 -->
 
-
 ## K23: [Pass] Explains the principles of a range of development methods and approaches and the contexts in which they can be applied
-
 ### Evidence
 
 #### Critical Evaluation and Recommendations <!-- 600 words -->
@@ -774,9 +766,7 @@ TO REACH A:
 - Reflect on how your professional practice shaped outcomes and what you would do differently
 -->
 
-
 ## S21: [Pass] Explains how they determine, refine, adapt and use appropriate software engineering methods, approaches and techniques to evaluate software engineering project outcomes
-
 ### Evidence
 
 #### Testing Strategy and Implementation <!-- 1100 words -->
@@ -981,9 +971,7 @@ TO REACH A:
 - Reflect on how your professional practice shaped outcomes and what you would do differently
 -->
 
-
 ## B1: [Pass] Applies relevant legal, ethical, social and professional standards to digital and technology solutions considering both technical and non-technical audiences and in line with organisational guidelines
-
 ### Evidence
 
 #### Stakeholder Communication and Professional Practice <!-- 700 words -->

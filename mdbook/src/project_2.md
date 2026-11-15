@@ -1,14 +1,12 @@
 # Project 2 - Driving Business Value with Data Engineering
 
 ## Context
-
 #### Data Engineering Project Evaluation Report
 <!-- 1200 words -->
 
 The eTenders application was initially designed to eliminate the time wasted reading through 50 emails per day and uses AI to discern which tenders should be responded to.
 
 ## S11: [Pass] Demonstrates the use of core technical concepts for digital and technology solutions, including: applies the principles of data analysis for digital and technology solutions
-
 ### Evidence
 
 #### Stakeholder Engegement & crafting a solution <!-- 500 words -->
@@ -266,9 +264,7 @@ RUBRIC - A
 Designs and implements a sophisticated data solution that meets business requirements. Focuses on scalability, performance optimization, security, and regulatory compliance. Conducts comprehensive testing and automation with scheduling. Includes flexible design for future changes and adherence to best practices.
 -->
 
-
 ## K13: [Pass] Demonstrates the use of core technical concepts for digital and technology solutions, including: applies the principles of data analysis for digital and technology solutions
-
 ### Evidence
 
 #### Data Product Development <!-- 1000 words -->
@@ -504,9 +500,7 @@ We must follow responsible AI principals (mesameki, 2024) with a human in the lo
   - Justify the selection based on criteria like performance, scalability, security, and regulatory compliance.
 -->
 
-
 ## S10: [Pass] Demonstrates the use of core technical concepts for digital and technology solutions, including: initiates, designs, implements and debugs a data product for a digital and technology solution
-
 ### Evidence
 
 #### Proof of Concept <!-- 500 -->
@@ -802,9 +796,7 @@ main.py
       └─> postgres_output.py (PostgresOutput)
 ```
 
-
 ## K14: [Pass] Explains core technical concepts for digital and technology solutions, including: Data gathering, data management, and data analysis
-
 ### Evidence
 
 #### Data Engineering Project Evaluation Report

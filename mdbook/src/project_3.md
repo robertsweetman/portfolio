@@ -2,17 +2,16 @@
 
 ## Context
 
-This project proposes a transformative data strategy for the UK Ministry of Justice (MoJ) to address critical gaps in data transparency and ethical data management. The MoJ is responsible for Prison Facilities, Courts, Compensation, Finances and Prisoners UK-wide, operating legacy Oracle database systems (NOMIS and OASYS) that underpin all this activity.
+#### Introduction - Ministry of Justice
 
-While the MoJ recognizes the importance of its data, legacy systems remain a significant operational burden, and the Government's own State of Digital Government Review identifies that "Data is fragmented and underused" and "Critical services depend on decades-old legacy technology." More critically, the MoJ's Data Maturity Assessment scores only 2-3 out of 5 for "Managing and using data ethically" due to an overwhelming lack of transparency.
+* Responsible for Prison Facilities, Prison Staff, Courts, Compensation, Finances and Prisoners UK Wide.[(1)](#references)
 
-Research from the Data First Research Bulletin reveals significant ethnic inequalities in the criminal justice system - Black defendants are 41% more likely to elect Crown Court trials (leading to longer sentences), and ethnic minority defendants from Black, Mixed, Chinese, and Other White groups experience higher remand rates and custodial sentences compared to White British defendants.
+* Version 1 contractors contribute to the migration and modernisation of systems that underpin all this activity.
 
-The recommendation proposes using AI technology (Model Context Protocol combined with AWS Bedrock Guardrails) to democratize access to justice data while protecting PII, achieving organizational goals without requiring expensive multi-year legacy system overhauls. This approach applies Kotter's 8-step change management model, addresses cultural and security risks, and includes a phased implementation timeline spanning assessment, planning, POC, pilot, and rollout phases.
+* While the MoJ does recognise the importance of it's data, legacy systems remain a significant operational burden.
 
-The expected impact is equitable justice outcomes through a continuous improvement cycle: Democratize Access → Increased Scrutiny → Actionable Feedback → Improve Training → Equitable Justice.
+* MOJ sits under the overall UK Gov Digital Strategy[(2)](#references), which now has a significant AI component.[(3)](#references)
 
----
 
 ## K7: [Pass] Reviews the roles, functions and activities relevant to technology solutions within an organisation
 
@@ -40,12 +39,10 @@ flowchart TD;
     style DB fill:#e67e22,stroke:#d35400,color:white,stroke-width:2px
     linkStyle 0,1,2,3,4,5,6,7,8 stroke:#ffffff,stroke-width:2px
 ```
-
-Figure 1: MoJ Governance Structure
+[(4)](#references)
 
 ![MoJ Digital Strategy](./images/project_3/digi-strategy-2025.jpg)
-
-Figure 2: MoJ Digital Strategy 2025
+[(5)](#references)[/(6)](#references)
 
 ```mermaid
 block-beta
@@ -56,11 +53,10 @@ block-beta
    style DATA fill:#3498db,stroke:#2980b9,color:white,stroke-width:2px
 ```
 
-Figure 3: Strategic Themes
-
 ![MoJ Focus](./images/project_3/wordcloud-191603.png)
+[(4)](#references)
 
-Figure 4: MoJ Focus Areas
+
 
 #### Organisational Evaluation
 
@@ -90,9 +86,6 @@ block-beta
     style OASYS fill:#e67e22,stroke:#d35400,color:white,stroke-width:2px
     style REPORTING fill:#9b59b6,stroke:#8e44ad,color:white,stroke-width:2px
 ```
-
-Figure 5: Organizational Infrastructure
-
 * HMPPS - Her Majesty's Prison and Probation Service
 * HMCTS - Her Majesty's Courts and Tribunals Service
 * LAA - Legal Aid Agency
@@ -101,31 +94,55 @@ Figure 5: Organizational Infrastructure
 
 **There are a LOT of bodies relying on this data.**
 
-Unlike many other UK Gov departments - the MoJ has a CTO!
+Unlike many other UK Gov departments - the MoJ has a CTO! 
 
-#### Stakeholders and Change Process
-
-* **Executive Board and SLT**
-  * Drive change
-* **Security Team**
-  * Legitimacy and Confidence
-* **Data and Reporting Team**
-  * Evangelise Internally
-
-
-
----
 
 ## K9: [Pass] Describes the concepts and principles of leadership and management as they relate to their role and how they apply them
 
 ### Evidence
 
-#### Kotter's 8 Steps for Change Management
+#### Implementation
 
-A problem-centered model for change where Existing state != ideal state
+```mermaid
+flowchart TD
+
+   db1[(Db 1)]
+   db2[(Db 2)]
+   db3[(Db 3)]
+   ai["MCP"]
+   guard["Guardrails"] 
+   query["Query Frontend"]
+
+   ai --> db1
+   ai --> db2
+   ai --> db3
+   ai --> guard
+   guard --> query
+   query --> ai
+
+   linkStyle 0,1,2,3,4,5 stroke:#ffffff,stroke-width:2px
+   style query fill:#3498db,stroke:#2980b9,color:white,stroke-width:2px
+   style guard fill:#ff0000,stroke:#ff0000,color:white,stroke-width:2px
+   style ai fill:#e67e22,stroke:#d35400,color:white,stroke-width:2px    
+```
+* MCP - model context protocol [(9)](#references)
+* Guardrails - PII blocking [(10)](#references)
+* Query Frontend - democratized access to data
+
+##### Stakeholders and Change Process
+* Executive Board and SLT
+  * Drive change
+* Security Team
+  * Legitimacy and Confidence
+* Data and Reporting Team
+  * Evangelise Internally
+
+##### Kotter's 8 steps
+* A problem-centered model for change
+* Existing state != ideal state
 
 | Step    | Details |
-|---------|---------|  
+|---------|---------|
 | Urgency | Executive Board and SLT elect to drive changes |
 | Coalition | Bring in the Security Team and Data and Reporting Team |
 | Vision  | Work on the vision & strategy together |
@@ -135,40 +152,36 @@ A problem-centered model for change where Existing state != ideal state
 | Consolidate | Build out the product & test internally |
 | Anchor | Re-affirm the vision, strategy and outcomes before public go-live |
 
-Figure 6: Kotter's 8-Step Change Model Applied
 
-#### Resistance to Cultural Change 
-  
-* Senior management MUST buy in and communicate a clear vision
-  * How improving data transparency and access will benefit all users
-  * How scrutiny should not be feared, but welcomed
-  * How staff will ultimately benefit on a personal level
-  
-* Staff who currently "own" report generation will need to adapt
-  * Become stewards & facilitators, not owners
-  * Appreciate a greater exposure to what users require from the data
-  * Accept that insights might come from outside the org
-
-
-
----
 
 ## K10: [Pass] Describes the concepts and principles of leadership and management as they relate to their role and how they apply them
 
 ### Evidence
 
-#### Risk Management and Mitigation
+#### Risks and Mitigation
 
+##### Resistance to Cultural Change 
+  
+  * Senior management MUST buy in and communicate a clear vision
+    * How improving data transparency and access will benefit all users
+    * How scrutiny should not be feared, but welcomed
+    * How staff will ultimately benefit on a personal level
+  
+  * Staff who currently "own" report generation will need to adapt
+    * Become stewards & facilitators, not owners
+    * Appreciate a greater exposure to what users require from the data
+    * Accept that insights might come from outside the org    
+  
 ##### Significant push-back around security risks
 
-* All levels of the organistion will be very concerned with the security implications
-  * The technical implementation will be perceived as new and therefore untrusted
-  * The idea of 'open data' is not accepted culturally
-  * Possibility that the technology itself has been 'over-sold'
+  * All levels of the organistion will be very concerned with the security implications
+    * The technical implementation will be perceived as new and therefore untrusted
+    * The idea of 'open data' is not accepted culturally
+    * Possibility that the technology itself has been 'over-sold'
 
 ##### Personnel and Skills
 
-* The MoJ, like basically every other org, has a skills gap around AI
+  * The MoJ, like basically every other org, has a skills gap around AI
 
 ##### Risk Matrix
 
@@ -178,47 +191,42 @@ Figure 6: Kotter's 8-Step Change Model Applied
 | Med   |           |  Personnel    |  Security   |
 | Low   |           |               |             |
 
-Figure 7: Risk Matrix
+##### Mitigation
 
-##### Mitigation Strategies
+Cultural 
+  - Senior leadership must fully embrace and evangelise the goal 
+  - Team leads must ALSO ensure individuals attend training
+  - As part of the training:
+    - Show examples where open data would have led to better outcomes
+    - Build a POC/demo to show staff ASAP
+    - Encourage open debate as to risks/issues **once the internal pilot is live**
+  - Recognition this will improve outcomes for prisoners
+  - Convey how public perception of the MoJ will improve
 
-**Cultural**
-- Senior leadership must fully embrace and evangelise the goal 
-- Team leads must ALSO ensure individuals attend training
-- As part of the training:
-  - Show examples where open data would have led to better outcomes
-  - Build a POC/demo to show staff ASAP
-  - Encourage open debate as to risks/issues **once the internal pilot is live**
-- Recognition this will improve outcomes for prisoners
-- Convey how public perception of the MoJ will improve
+Security Risks
+  - The primary goal of a POC will be to show the organisation that PII is not available
+  - ALL internal users will have a significant period to 'dog-food' the application before the public
+  - There will be a well constructed approach to security/penetration testing:
+    - Trying to exfiltrate PII
+    - Commission a specialist 3rd party to undertake this work
+    - Have internal security staff given specialist training on how to jail-break AI tools
 
-**Security Risks**
-- The primary goal of a POC will be to show the organisation that PII is not available
-- ALL internal users will have a significant period to 'dog-food' the application before the public
-- There will be a well constructed approach to security/penetration testing:
-  - Trying to exfiltrate PII
-  - Commission a specialist 3rd party to undertake this work
-  - Have internal security staff given specialist training on how to jail-break AI tools
-
-**Personnel**
-- Encourage internal staff to expand their skills
-- Resist the urge to hire external consultants
-  - Create an internal team of experts whose job it is to train others and share knowledge
-  - Create training centered around the goal
+Personnel
+  - Encourage internal staff to expand their skills
+  - Resist the urge to hire external consultants
+    - Create an internal team of experts whose job it is to train others and share knowledge
+    - Create training centered around the goal
 
 
 
----
 
 ## K20: [Pass] Explains sustainable development approaches within digital technologies as they relate to their role including diversity and inclusion
-
-[Distinction] Evaluates the impact of sustainable digital technology practices of their organisation.
 
 ### Evidence
 
 #### UK Gov Data Maturity Assessment
 
-UK has its OWN Data Maturity Assessment framework for Government...
+UK has its OWN Data Maturity Assessment framework for Government... [(7)](#references)
 
 ##### Maturity Levels
 
@@ -229,8 +237,6 @@ UK has its OWN Data Maturity Assessment framework for Government...
 | 3 | Learning | - Data literacy valued in leadership roles<br> - Non-expert staff require specialist help<br> - Desire to improve<br> - Silos are being broken down |
 | 4 | Developing | - Non-expert users require little specialist support<br> -Some external outreach and engagement<br> -Data seen as a priority |
 | 5 | Mastering | - Org wide implementation<br> - Strong internal and external engagement<br> - Future proofing<br> - Deep capability and understanding |
-
-Figure 11: Data Maturity Levels
 
 ##### Assessment Results
 
@@ -247,26 +253,24 @@ Figure 11: Data Maturity Levels
 | Having the right systems | 3/4 | Low score due to legacy systems but there is a modernisation goal |
 | ⚠️ Managing and using data ethically | 2/3 | Low score primarily due to an overwhelming lack of transparency |
 
-Figure 12: MoJ Data Maturity Assessment
-
 ##### Summary
-
 Legacy systems reduce data maturity, which has a knock-on effect on the ability to interrogate data or make it widely accessible.
+
+
 
 #### Impacts of the lack of access & transparency
 
-##### Data first research bulletin
-
+##### Data first research bulletin [(8)](#references)
 * Based off a data-linking programe running since 2019
 * Brings together 8 justice datasets 
 * Only open to academics - refer to 50 page application process
 * Only 40 projects completed in 5 years
 
-##### Ethnicity and the Justice System 
+###### Ethnicity and the Justice System 
 
 _Compared to White defendants, Black defendants are significantly morelikely (41% more likely) to elect to have their case heard in the Crown Court, when controlling for age, sex, and number of previous convictions. Cases which elect to be heard in the Crown Court are more likely to result in immediate custody, and average sentence lengths are longer, also when controlling for these factors._
 
-##### Ethnic Inequalities in the Criminal Justice System
+###### Ethnic Inequalities in the Criminal Justice System
 
 _Ethnic minority defendants from Black, Mixed, Chinese, and Other White groups were more likely to be remanded in custody by the police than White British defendants._
 
@@ -276,44 +280,39 @@ _Among those convicted in the Crown Court, defendants from the Black Caribbean, 
 
 _Bangladeshi, Pakistani and Black Caribbean groups received significantly longer sentences than the White British group_
 
-Figure 13: Ethnic Disparities in Justice Outcomes
+
 
 #### Ethics, DEI and Sustainability Analysis
 
 ##### Making Data Publically accessible
-
 * Increased scrutiny means a tendency towards justice outcomes that is more evenly applied
 * Improve justice outcomes for ethnic minorities or under-represented groups
 * Wider (non-academic) access leads to pressure, both internally and externally, to accept feedback and changes
 * At this point we don't even know what other insights might arise 
-* Cost per prison place in the UK is £46K annually
-* Miscarriages of justice cost money.
+* Cost per prison place in the UK is £46K annually [(12)](#references)
+* Miscarriages of justice cost money. [(13)](#references)
   * Claims rose by 20% in 2023
   * Increase in claims by women and minorities
 
 ##### Technical implementation leapfrogs legacy issues
-
 * Achieves an organisational and strategic goal WITHOUT a multi-year legacy overhall
   * Doesn't require the overhall of legacy systems
     * Cheaper for the tax payer
     * Renew/replace legacy apps without time pressure
 
 ##### Implementation on the EDGE of AI tech
-
 * Given the speed of AI innovation:
   * Costs will continue to fall as the approach is implemented
 * Leverage this project to attract AI talent into government
   * The 27% pension contribution for Civil Servants doesn't hurt either...
 
----
 
 ## S8: [Pass] Describes the concepts and principles of leadership and management as they relate to their role and how they apply them
 
 ### Evidence
 
-#### Implementation Timeline and Phased Approach
+#### Timescales for Change
 
-<!-- markdownlint-disable MD033 -->
 <style>
   /* Default for dark themes - white text */
   .mermaid text {
@@ -404,7 +403,6 @@ Figure 13: Ethnic Disparities in Justice Outcomes
     stroke-width: 2px;
   }
 </style>
-<!-- markdownlint-enable MD033 -->
 
 ```mermaid
 gantt
@@ -430,8 +428,6 @@ gantt
     Internal Testing :a7, after a6, 4w
 ```
 
-Figure 8: Data Strategy Implementation - Phase 1
-
 ```mermaid
 gantt
     title Data Strategy Implementation - Deployment
@@ -452,44 +448,8 @@ gantt
     Assessment   :milestone, a8, after a7
 ```
 
-Figure 9: Data Strategy Implementation - Phase 2
-
 Assessments will be ongoing to course correct to meet the goals over the long term.
 
-#### Technical Implementation Architecture
-
-```mermaid
-flowchart TD
-
-   db1[(Db 1)]
-   db2[(Db 2)]
-   db3[(Db 3)]
-   ai["MCP"]
-   guard["Guardrails"] 
-   query["Query Frontend"]
-
-   ai --> db1
-   ai --> db2
-   ai --> db3
-   ai --> guard
-   guard --> query
-   query --> ai
-
-   linkStyle 0,1,2,3,4,5 stroke:#ffffff,stroke-width:2px
-   style query fill:#3498db,stroke:#2980b9,color:white,stroke-width:2px
-   style guard fill:#ff0000,stroke:#ff0000,color:white,stroke-width:2px
-   style ai fill:#e67e22,stroke:#d35400,color:white,stroke-width:2px    
-```
-
-Figure 10: Technical Architecture
-
-* MCP - model context protocol
-* Guardrails - PII blocking
-* Query Frontend - democratized access to data
-
-
-
----
 
 ## B8: [Pass] Explains sustainable development approaches within digital technologies as they relate to their role including diversity and inclusion
 
@@ -498,7 +458,6 @@ Figure 10: Technical Architecture
 #### Gap Analysis
 
 ##### Wins
-
 * Databases are on the cloud
 * Migration from Azure -> AWS has delivered an Infrastructure as code (IaC) solution
   * More robust disaster recovery
@@ -509,37 +468,34 @@ Figure 10: Technical Architecture
     * An opportunity to turn things off  
 
 ##### Fails
-
 * Databases are still hosted on expensive VMs, not run as a managed service
 * Database licensing costs are still high (Oracle)
 * A lot of legacy apps had to move under un-supported OS and application version...
 * Reporting using the legacy systems use SAP Business Objects, only recently upgraded
 
 ##### Data Challenges
-
 * Production data access requires security clearance
-* Data analysis requires specialist knowledge, tools and training
+* Data analysis requires specialist knowledge, tools and training [(11)](#references)
 * Data is not anonymised so cannot be made available to the public generally
   * You _can_ fill in a 50 page form to apply for access with no guarantee of success
   * Little outside scrutiny means that outcomes based on data are potentially unreliable
 
-##### Government's own State of Digital Government Review
+##### Government's own State of Digital Government Review [(2)](#references)
 
-**Data is fragmented and underused.**
-
+###### Data is fragmented and underused.
 _This holds back AI, machine learning, and advanced analytics. Only 27% of survey respondents believe their current data infrastructure enables a comprehensive view of operations or transactions. 70% say their data landscape is not well co-ordinated, interoperable, and does not provide a unified source of truth._
 
-**Critical services depend on decades-old legacy technology.**
-
+###### Critical services depend on decades-old legacy technology. 
 _The scale of legacy varies by organisation and is not consistently measured, but it is estimated to comprise 28% of systems in central government departments in 2024, an increase from 26% in 2023._
 
-#### Recommendation for Change
+
+#### Recommendation
 
 ##### Increase Public Access
 
 * From the Government's own Data Maturity Model there is a lack of transparency. 
 
-* Ethical/discrimination issues go un-addressed.
+* Ethical/discrimination issues go un-addressed.[(8)](#references)
   * There's a difference between a suspicion of discrimination vs. data-backed evidence
 
 * The data is only available for accedemic scrutiny under strict supervision. 
@@ -552,24 +508,25 @@ _It's hard to claim that the MoJ is a Data Driven organisation when the data is 
 Initiate a multi-year project to anonymise the data, eventually making it publicly available.
 
 This would require significant technical changes:
-- Modernisation and standardisation of the databases, schemas and various tables inside them.
-- Likely re-write of key legacy applications
-- Large scale anonymisation effort on an ongoing basis
-- Significant security improvements to allow for public access
-- Increased cost, unless the data is made available in a more cost effective way
+  - Modernisation and standardisation of the databases, schemas and various tables inside them.
+  - Likely re-write of key legacy applications
+  - Large scale anonymisation effort on an ongoing basis
+  - Significant security improvements to allow for public access
+  - Increased cost, unless the data is made available in a more cost effective way
 
 Even with this type of re-write/re-architecture it would likely remain the case that only specialist data scientist would be able to gain insight from it.
 
 ##### The post-AI solution
 
-AI agents that leverage the Model Context Protocol
-* Connect to data in any form 
-* Ask questions using natural language rather than a query language
-* Return anonymized results
+AI agents that leverage the Model Context Protocol [(9)](#references)
+  * Connect to data in any form 
+  * Ask questions using natural language rather than a query language
+  * Return anonymized results
 
-At a high level combining the MCP with (for example) AWS Bedrock Guardrails would allow for a secure, anonymised and queryable data set to be made available to the public.
+At a high level combining the MCP with (for example) AWS Bedrock Guardrails [(10)](#references) would allow for a secure, anonymised and queryable data set to be made available to the public.
 
 This would also allow the data to be queried in a natural language format, a key to opening up engagement to non-academic users.
+
 
 #### Impact Analysis
 
@@ -584,8 +541,6 @@ flowchart LR
     style E fill:#e67e22,stroke:#d35400,color:white,stroke-width:2px
     linkStyle 0,1,2,3,4 stroke:#ffffff,stroke-width:2px
 ```
-
-Figure 14: Continuous Improvement Cycle
 
 * Democratize Access  - AI, MCP and PII blocking allows wider access to data
 * Increased Scrutiny  - Leads to more transparency, wider range of insights
@@ -611,3 +566,34 @@ Figure 14: Continuous Improvement Cycle
   * **Measure whether cultural perception of the overall UK Justice system goes up**
 
 **Caveat: These goals might take a number of years to manifest**
+
+
+
+#### References
+
+
+1. GOV.UK (2025). Ministry of Justice - About us. Available at: [https://www.gov.uk/government/organisations/ministry-of-justice/about](https://www.gov.uk/government/organisations/ministry-of-justice/about). (Accessed: 27 Feb 2025)
+
+2. Dept for Science Innovation & Technology, Govt Digital Service. (2025). State of digital government review. Available at: [https://www.gov.uk/government/publications/state-of-digital-government-review](https://www.gov.uk/government/publications/state-of-digital-government-review). (Accessed: 4 Apr 2025)
+
+3. GOV.UK. (2025). Artificial Intelligence Playbook for the UK Government. Available at: [https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html](https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html) (Accessed: 9 Apr 2025).
+
+4. GOV.UK. (2022). Our governance. Available at: [https://www.gov.uk/government/organisations/ministry-of-justice/about/our-governance](https://www.gov.uk/government/organisations/ministry-of-justice/about/our-governance). (Accessed: 4 Apr 2025).
+
+5. Image: MoJ Digital Strategy - 2025 [https://assets.publishing.service.gov.uk/media/6241e4dae90e075f06b37247/digi-strategy-2025.jpg](https://assets.publishing.service.gov.uk/media/6241e4dae90e075f06b37247/digi-strategy-2025.jpg) (Accessed: 2 Apr 2025).
+
+6. Ministry of Justice (2022) Ministry of Justice Digital Strategy 2025. Available at: [https://www.gov.uk/government/publications/ministry-of-justice-digital-strategy-2025/ministry-of-justice-digital-strategy-2025](https://www.gov.uk/government/publications/ministry-of-justice-digital-strategy-2025/ministry-of-justice-digital-strategy-2025) (Accessed: 27 Feb 2025).
+
+7. Data Maturity Assessment for Government Framework. Available at: [https://www.gov.uk/government/publications/data-maturity-assessment-for-government-framework/data-maturity-assessment-for-government-framework-html#maturity-levels](https://www.gov.uk/government/publications/data-maturity-assessment-for-government-framework/data-maturity-assessment-for-government-framework-html#maturity-levels) (Accessed: 31 Mar 2025).
+
+8. Ministry of Justice (July 2024) Data First Research Bulletin. Available at: [https://assets.publishing.service.gov.uk/media/66a8e11dfc8e12ac3edb0735/Data_First_Research_Bulletin_MoJ.pdf](https://assets.publishing.service.gov.uk/media/66a8e11dfc8e12ac3edb0735/Data_First_Research_Bulletin_MoJ.pdf) (Accessed: 7 April 2025).
+
+9. Anthropic.com. (2025). Introducing the Model Context Protocol. [online] Available at: [https://www.anthropic.com/news/model-context-protocol](https://www.anthropic.com/news/model-context-protocol). (Accessd: 5 April 2025).
+
+10. Amazon.com. (2025). Remove PII from conversations by using sensitive information filters - Amazon Bedrock. Available at: [https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-sensitive-filters.html](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-sensitive-filters.html) (Accessed 13 Apr. 2025).
+
+11. GOV.UK. (2022) Conducting research in Prisons, Probation or HMPPS Headquarters. Available at: [https://apply-for-hmpps-research.service.justice.gov.uk/Introduction-and-Guidance/](https://apply-for-hmpps-research.service.justice.gov.uk/Introduction-and-Guidance/) (Accessed 11 Apr. 2025).
+
+12. The Equality Trust: Calculating the Cost of Inequality -2023. Available at: [https://media.equality-trust.out.re/uploads/2023/11/ReportCostofInequality-1.pdf](https://media.equality-trust.out.re/uploads/2023/11/ReportCostofInequality-1.pdf) (Accessed 11 Apr. 2025)
+
+13. Criminal Cases Review Commission (2023). Almost 20% Rise in Miscarriage of Justice Claims in the Last Year. Criminal Cases Review Commission. Available at:[https://ccrc.gov.uk/news/ccrc-annual-report-2023/](https://ccrc.gov.uk/news/ccrc-annual-report-2023/). (Accessed 10 Apr 2025).
